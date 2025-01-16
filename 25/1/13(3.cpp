@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string.h>
 using namespace std;
+//定长数组
 
 //template <class T,int len=10>//非通用类型可以有缺省值
 template <class T,int len>
