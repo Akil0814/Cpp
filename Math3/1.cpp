@@ -10,11 +10,11 @@ double x2s=0;//x2 save from last position
 
 double mid=0;//mid poit of x1 and x2
 
-//#define Func1 sin(x1)-pow(x1,2)+x1
-//#define Func2 sin(x2)-pow(x2,2)+x2
+#define Func1 sin(x1)-pow(x1,2)+x1
+#define Func2 sin(x2)-pow(x2,2)+x2
 
-#define Func1 pow(x1,3)-x1+1
-#define Func2 pow(x2,3)-x2+1
+//#define Func1 pow(x1,3)-x1+1
+//#define Func2 pow(x2,3)-x2+1
 
 
 
