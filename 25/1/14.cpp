@@ -44,25 +44,28 @@ public:
         delete[] items;
         items=nullptr;
     }
+
     void resize(int size)
     {
         if(size<=len)
          return;
         T*tmp=new T[size];
-        for(int ii=0;ii<len;i++)
+        for(int ii=0;ii<len;ii++)
             tmp[ii]=items[ii];
         delete[] items;
         items=tmp;
         len=size;
     }
+
     int size()const
     {
         return len;
     }
 
-    T& operator[](T ii)//重载操作符[] 可以修改数组中的元素
+    T& operator[](int ii)//重载操作符[] 可以修改数组中的元素
     {
-        if(ii>=len)resize(ii+1);
+        if(ii>=len)
+            resize(ii+1);//扩展数组
         return items[ii];
     }
 
@@ -76,15 +79,14 @@ public:
 
 int main()
 {
-    Array<int,10> aa;//可以更改《》内的数据类型// 10为数 组的大小
-    aa[0]=5;
-    aa[1]=9;
-    aa[2]=6;
-    aa[3]=1;
-    aa[4]=3;
+    //Array<int,10> aa;//可以更改《》内的数据类型//10为数 组的大小//在栈上分配内存 容易维护 执行速度快 适合小型数组
+    Vector<string> aa(1); //创建模板类Vector的对象//更通用 可以自动扩展
+
+    aa[0]=5; aa[1]=9; aa[2]=6; aa[3]=1; aa[4]=3;
+
     for(int i=0;i<5;i++)
     {
-        cout<<"aa"<<i<<" "<<aa[i]<<endl;
+        cout<<"aa "<<i<<" "<<aa[i]<<endl;
     }
 
     return 0;

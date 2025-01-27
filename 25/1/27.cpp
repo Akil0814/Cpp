@@ -23,23 +23,16 @@ int main()
         return 0;
     }
 
-    string buffer;//用于存放从文件中读取的内容
 
-    //读取文件内容
-    //文件文本一般以行的方式组织数据
+    //用c风格字符串存放
+    char buffer[100];
 
-    //getline(fin,buffer);//从文件中读取一行数据放在buffer中
-
-    //如果想要读取全部数据 需要while循环
-    while(getline(fin,buffer))//把文件内容一行一行读取出来，放在buffer中//文件结束getline返回空
+    while(fin.getline(buffer,100))//getline函数为成员函数，第一个参数为buffer 第二个参数为最多读取内容的字节数
     {
         cout<<buffer<<endl;
     }
-    
-    while(fin>>buffer)//效果一样
-    {
-        cout<<buffer<<endl;
-    }
+
+
 
 
     fin.close();
