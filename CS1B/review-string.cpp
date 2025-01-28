@@ -43,7 +43,6 @@ bool ContinueLooking(string s,int len,Direction d,int x,int y)
             }
             return true;
 
-
         break;
 
     case RIGHT:
@@ -101,7 +100,7 @@ bool FindString(string str,int len)
                         {
                             if(arr[x][y+1]==str[1])
                             {
-                                if(ContinueLooking(str,len,RIGHT,x,y))
+                                if(ContinueLooking(str,len,RIGHT,x,y))   
                                     return true;
                                 else
                                     return false;
