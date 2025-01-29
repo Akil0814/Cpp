@@ -2,25 +2,25 @@
 #include<iomanip>
 #include<cmath>
 
-double x1=0;//for one side of interval
-double x2=0;//other side of interval
+float x1=0;//for one side of interval
+float x2=0;//other side of interval
 
-double x1s=0;//x1 save from last position
-double x2s=0;//x2 save from last position
+float x1s=0;//x1 save from last position
+float x2s=0;//x2 save from last position
 
-double mid=0;//mid poit of x1 and x2
+float mid=0;//mid poit of x1 and x2
 
-#define Func1 sin(x1)-pow(x1,2)+x1
-#define Func2 sin(x2)-pow(x2,2)+x2
+//#define Func1 sin(x1)-pow(x1,2)+x1
+//#define Func2 sin(x2)-pow(x2,2)+x2
 
-//#define Func1 pow(x1,3)-x1+1
-//#define Func2 pow(x2,3)-x2+1
+#define Func1 pow(x1,3)-x1+1
+#define Func2 pow(x2,3)-x2+1
 
 
 
 using namespace std;
 
-void Search(double f1,double f2)
+void Search(float f1,float f2)
 {
     mid=(x1+x2)/2;//mid point of x1 and x2
     x2=mid;//move x2 to mid point
@@ -57,8 +57,8 @@ int main()
     cout<<"Enter x2:";
     cin>>x2;
 
-    double f1=Func1;//y val of x1
-    double f2=Func2;//y val of x2
+    float f1=Func1;//y val of x1
+    float f2=Func2;//y val of x2
 
     x1s=x1; x2s=x2;//save x1 x2 data
 
