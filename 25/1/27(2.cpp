@@ -28,7 +28,7 @@ public:
          return;
         T*tmp=new T[size];
         for(int ii=0;ii<len;ii++)
-            tmp[ii]=items[ii];
+            tmp[ii]=items[ii];//复制c++内置类型没有问题  如果复制类，并且类中使用了堆区内存，就存在浅拷贝的问题
         delete[] items;
         items=tmp;
         len=size;
@@ -58,7 +58,7 @@ template <class DataType>
 class Stack  //栈类
 {
 private:
-    DataType* items;     //栈数组
+    DataType* items;     //栈数组 //成员变量是指针 使用了堆区内存//对于Stack类浅拷贝是不行的，需要重写拷贝构造函数和赋值函数 
     int stacksize;  //栈实际的大小
     int top;        //栈顶指针
 public:
@@ -71,6 +71,17 @@ public:
     {
         delete[] items;
         items=nullptr;
+    }
+
+    Stack& operator=(const Stack& v)
+    {
+        delete[] items;  //释放原内存
+        stacksize=v.stacksize;  //栈实际大小
+        items=new DataType[stacksize];// 重新分配数组
+        for(int ii=0;ii<stacksize;ii++)//复制数组中的元素
+            items[ii]=v.items[ii];
+            top=v.top;//栈顶指针
+            return *this;
     }
 
     bool isempty() const//判断栈是否为空
@@ -116,7 +127,7 @@ int main()
     //2 手工的往容器中插入数据
     vs[0].push("akil1");vs[0].push("akil2");vs[0].push("akil3");  //容器中的第一个栈//入栈三个元素
     vs[1].push("mai1");vs[1].push("mai2");vs[1].push("mai3");  //容器中的第二个栈
-    vs[2].push("CC");vs[2].push("CC");
+    //vs[2].push("CC");vs[2].push("CC");//自动扩展时报错
 
     //3 用嵌套循环 把容器中的数据显示出来
     for(int ii=0;ii<vs.size();ii++)//遍历Vector容器

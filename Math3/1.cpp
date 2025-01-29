@@ -15,6 +15,7 @@ float mid=0;//mid poit of x1 and x2
 
 #define Func1 pow(x1,3)-x1+1
 #define Func2 pow(x2,3)-x2+1
+//可能：递归过深导致栈溢出
 
 
 
