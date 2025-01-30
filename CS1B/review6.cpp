@@ -1,3 +1,5 @@
+//find missing number
+
 #include<iostream>
 using namespace std;
 
