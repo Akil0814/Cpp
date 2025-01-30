@@ -73,7 +73,7 @@ public:
         items=nullptr;
     }
 
-    Stack& operator=(const Stack& v)
+    Stack& operator=(const Stack& v)//重载操作符 进行深拷贝
     {
         delete[] items;  //释放原内存
         stacksize=v.stacksize;  //栈实际大小
