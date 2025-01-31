@@ -27,7 +27,7 @@ public:
         delete[] items;  //释放原内存
         len=v.len;       //数组际大小
         items=new T[len];// 重新分配数组
-        for(int ii=0;ii《;ii++)//复制数组中的元素
+        for(int ii=0;ii<len;ii++)//复制数组中的元素
             items[ii]=v.items[ii];
 
         return *this;
@@ -150,9 +150,34 @@ int main()
     }
 
     //创建Stack容器，容器中的元素用Vector<string>
-    Stack<Vector<string>>sv//
+    Stack<Vector<string>>sv;//
     Vector<string>tmp;
-    tmp[0]=""
+
+    tmp[0]="akil1";tmp[1]="akil2";sv.push(tmp);//第一个元素入栈
+    tmp[0]="mai1";tmp[1]="mai2";sv.push(tmp);//第二个元素入栈
+    tmp[0]="saber1";tmp[1]="saber2";tmp[2]="saber3"; sv.push(tmp);//第三个元素入栈
+
+    while(sv.isempty()==false)
+    {
+        sv.pop(tmp);//出栈一个元素，放在临时容器中
+        for(int ii=0;ii<tmp.size();ii++)//遍历临时容器Vector<string>,显示容器中的每一个值
+            cout<<"vs["<<ii<<"]"<<tmp[ii]<<endl;
+    }
+
+
+    //创建Vector容器，容器中用Vector<string>
+    Vector<Vector<string>> vv; //递归使用模板类
+
+    vv[0][0]="akil0";vv[0][1]="akil1";vv[0][2]="akil2";
+    vv[1][0]="mai";vv[1][1]="CC";
+    vv[2][0]="02";vv[2][1]="saber";vv[2][2]="yukino";vv[2][3]="miku";
+
+    for(int ii=0;ii<vv.size();ii++)
+    {
+        for(int jj=0;jj<vv.size();jj++)
+            cout<<"vv["<<ii<<"]["<<jj<<"]"<<vv[ii][jj]<<endl;
+        cout<<endl;
+    }
      
     return 0;
 }
