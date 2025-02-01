@@ -46,8 +46,8 @@ int main()
         {
             switch(package)
             {
-            case 65://a
-            case 97:
+            case 'a'://a
+            case 'A':
             if(timeUsed>accsessTimeA)
                 cout<<"need to pay "<<priceA+(timeUsed-accsessTimeA)*overTimePriceA<<endl;
             else

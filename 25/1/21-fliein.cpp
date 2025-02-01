@@ -8,7 +8,7 @@ int main()
     string str="W:\\Coding\\code_text_output\\21.txt";//可以用string
 
     ifstream fin(str);//输入流//不会创建文件//fin为对象名，可以任取
-    fin.open(str,ios::in);
+    //fin.open(str,ios::in);
     //输入模式只有一种
     //ios::in  缺省值
     //ifstream fin(str)；
@@ -36,10 +36,7 @@ int main()
         cout<<buffer<<endl;
     }
     
-    while(fin>>buffer)//效果一样
-    {
-        cout<<buffer<<endl;
-    }
+
 
 
     fin.close();
