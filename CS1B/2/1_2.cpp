@@ -25,8 +25,6 @@ int Digit(int number, int n)
 
         return arr[index];
     }
-
-
 }
 
 int main()
