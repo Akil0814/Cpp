@@ -58,12 +58,59 @@ public:
         return items[ii];
     }
 
+/*    T findMax(const Vector<Vector<T>> items, int col, int row) const
+    {
+        T max=items[0][0];
+
+        for(int i=0;i<col;i++)
+        {
+            for(int j=0;j<row;j++)
+            {
+                if(items[i][j]>max)
+                    max=items[i][j];
+            }
+        }
+        return max;
+    }
+*/
+
 };
-
-
 
 
 int main()
 {
+    int row=0;
+    int col=0;
+    Vector<Vector<int>> arr;
 
+
+    cout<<"Enter the number of row you want:";
+    cin>>row;//行
+    cout<<"Enter the number of col you want:";
+    cin>>col;//列
+
+
+    for(int i=0;i<col;i++)
+    {
+        for(int j=0;j<row;j++)
+        {
+            cout<<"Enter "<<i+1<<" number for "<<j+1<<" row:";
+            cin>>arr[i][j];
+        }
+    }
+
+    int max=arr[0][0];
+
+        for(int i=0;i<col;i++)
+        {
+            for(int j=0;j<row;j++)
+            {
+                if(arr[i][j]>max)
+                    max=arr[i][j];
+            }
+        }
+
+    cout<<max<<endl;
+
+    return 0;
 }
