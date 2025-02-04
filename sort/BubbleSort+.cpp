@@ -55,13 +55,11 @@ void SortePtr(int* p,int x)//指针表示法
 
 void SorteArr(int arr[],int x)//数组表示法
 {
-    int t=0;
     bool didswap=false;
     for(int i=x-1;i>0;i--)
     {
         for(int j=0;j<i;j++)
         {
-            t++;
             if(arr[j]>arr[j+1])
             {
                 swap(arr[j],arr[j+1]);
@@ -70,11 +68,9 @@ void SorteArr(int arr[],int x)//数组表示法
         }
         if(!didswap)//没有交换直接退出程序
         {
-            cout<<t<<endl;
             return;
         }
     }
-    cout<<t<<endl;
 }
 
 int ti=0;//递归用计数器

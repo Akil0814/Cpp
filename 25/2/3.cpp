@@ -1,6 +1,4 @@
-//模板类与继承
-//普通类继承模板类实例化版本
-
+//普通类继承模板类
 #include<iostream>
 using namespace std;
 
@@ -20,12 +18,12 @@ public:
     }
 };
 
-
-class AA:public BB<int,string>//普通类//派生类
+template<class T1,class T2>
+class AA:public BB<T1,T2>//普通类//派生类
 {
 public:
     int m_a;
-    AA(int a ,int x,string y):BB(x,y),m_a(a)
+    AA(int a ,const T1 x,const T2 y):BB<T1,T2>(x,y),m_a(a)
     {
         cout<<"调用AA构造函数\n";
     }
@@ -35,12 +33,12 @@ public:
     }
 };
 
-
 int main()
 {
-    AA aa(8,3,"aaa");
+    AA<int,string> aa(3,8,"aaa");
     aa.func1();
     aa.func2();
+
 
     return 0;
 }

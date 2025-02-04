@@ -21,15 +21,15 @@ void SortePtr(int* p,int x)//指针表示法
 
 void SorteArr(int arr[],int x)//数组表示法
 {
-    int min=0;
+    int min=0;//最小元素数组下标
     for(int i=0;i<x-1;i++)
     {
-        min=i;
+        min=i;//默认第一个元素最小
         for(int j=i+1;j<x;j++)
         {
             if(arr[j]<arr[min])
             {
-                min=j;
+                min=j;//更新最小元素数组下标
             }
         }
         swap(arr[i],arr[min]);
