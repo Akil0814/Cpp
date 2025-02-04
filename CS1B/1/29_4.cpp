@@ -11,12 +11,31 @@ int sum_rang(int start,int end)
     return r;
 }
 
+
+void sum_rang(int start,int end,int r)
+{
+    int i=start;
+    r=r+i;
+
+    if(start==end)
+        return r;
+
+    sum_rang(++start,end,r);
+
+}
+
 int main()
 {
-    int start=3;
-    int end=6;
+    int start=0;
+    int end=0;
+    int r=0;
 
-    cout<<sum_rang(start,end)<<endl;
+    cout<<"Enter start:";
+    cin>>start;
+    cout<<"Enter start:";
+    cin>>end;
+
+    cout<<sum_rang(start,end,r)<<endl;
 
     return 0;
 }
