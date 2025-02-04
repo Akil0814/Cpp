@@ -1,3 +1,6 @@
+//友元
+
+
 #include<iostream>
 using namespace std;
 
