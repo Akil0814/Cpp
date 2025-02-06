@@ -3,7 +3,6 @@ using namespace std;
 
 //可以快速更改栈保存数据类型
 typedef int DataType;//定义栈元素的数据类型
-
 class Stack  //栈类
 {
 private:
