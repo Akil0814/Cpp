@@ -2,6 +2,9 @@
 #include<iostream>
 using namespace std;
 
+
+//创建命名空间的别名
+// namespace 别名=原名；
 namespace aa//aa命名空间
 {
     int ab=13;//全局变量
