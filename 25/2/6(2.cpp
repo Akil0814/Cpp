@@ -1,4 +1,5 @@
 //string容器
+//构造函数
 #include<iostream>
 #include<string>
 using namespace std;
@@ -26,6 +27,7 @@ int main()
     //2 string(const char* s):将string对象初始化为s指向的NBTS（转换函数）
     string s2("hellow world");
     cout<<"s2="<<s2<<endl;  //将输出s2=hellow world
+
     string s3="hellow world";
     cout<<"s3="<<s3<<endl;  //将输出s3=hellow world
 
@@ -55,18 +57,40 @@ int main()
 
 //-----------------------------------------------------------------------------------------------------------
 
-    //5 string(cosnt string& str,size_t pos=0 ,size_t n=npos)
+    //5 string(cosnt string& str,size_t pos=0 ,size_t n=npos):
+    //将string对象初始化为str从位置pos开始到结尾的字符，或从位置pos开始的n个字符
+    string s8(s3,3,5);    //s3：hellow world
+    cout<<"s8="<<s8<<endl;//输出 lo wo
+
+    string s9(s3,3);
+    //string s9(s3,50);//会判断字符串的结尾 不会越界 效果和上一行一样
+    cout<<"s9="<<s9<<endl;//输出 lo wrold
+    cout<<"s9.capacity()="<<s9.capacity()<<endl;
+    cout<<"s9.size()="<<s9.size()<<endl;
+
+    string s10("hello world",3,5);//效果与s8一样
+    cout<<"s10="<<s10<<endl;
+
+    string s11("hello world",3);//效果不同于s9//会优先使用 4构造函数
+    cout<<"s11"<<s11<<endl;
 
 //-----------------------------------------------------------------------------------------------------------
-
 
     //6 template<class T> string(T begin,T end):将string对象初始化为区间[begin,end)内的字符，
     //其中begin和end的行为就像指针，用于指定位置 范围包括begin在内 但不包括end
 
 //-----------------------------------------------------------------------------------------------------------
 
-
     //7 string(size_t n,char c): 创建一个由n个字符c组成的string对象
+    string s12(8,'x');
+    cout<<"s12="<<s12<<endl;//输出 8个x
+    cout<<"s12.capacity()="<<s12.capacity()<<endl;//15
+    cout<<"s12.size()="<<s12.size()<<endl;//8
+
+    string s13(30,0);//30个空字符
+    cout<<"s13="<<s13<<endl;//输出 空
+    cout<<"s13.capacity()="<<s13.capacity()<<endl;//31
+    cout<<"s13.size()="<<s13.size()<<endl;//30
 
     return 0;
 }
