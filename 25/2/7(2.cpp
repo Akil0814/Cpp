@@ -43,6 +43,14 @@ int main()
 
 //-----------------------------------------------------------------------------------------------------------
 //5) vector(Iterator first,Iterator last);//用迭代器创建vector容器
+    vector<int>ve1={1,2,3,4,5,6,7,8,9,10};//初始化
+    vector<int>ve2{ve1.cbegin()+2,ve1.cend()-3};
+
+    cout<<"ve2=";
+    //auto == std::vector<int>::const_iterator
+    for(auto it =ve2.cbegin();it!=ve2.cend();it++)
+        cout<<*it<<" ";
+    cout<<endl;
 
 //-----------------------------------------------------------------------------------------------------------
 //6) vector(vector<T>&& v);//移动构造函数
