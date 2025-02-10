@@ -3,11 +3,11 @@ using namespace std;
 
 void akil(int a)
 {
-    cout << a <<"akil akil\n";
+    cout << a <<" akil akil\n";
 }
 void mai(int a)
 {
-    cout << a <<"mai mai\n";
+    cout << a <<" mai mai\n";
 }
 
 void show(void(*pf)(int),int b)
