@@ -20,13 +20,6 @@ enum class DayOfWeek
     Sunday 
 };
 
-istream& operator>>(istream& cin, DayOfWeek& days)
-{
-    //days=static_cast<DayOfWeek>();    
-
-    return cin;
-}
-
 ostream& operator<<(ostream& cout, const DayOfWeek& days)
 {
     switch (days)
@@ -64,17 +57,24 @@ ostream& operator<<(ostream& cout, const DayOfWeek& days)
     return cout;
 }
 
+istream& operator>>(istream& cin, DayOfWeek& days)
+{
+    int inPutValue;
+    cin>>inPutValue;
+    days=static_cast<DayOfWeek>(inPutValue%7);
+
+    return cin;
+}
+
 int main()
 {
     DayOfWeek Days=DayOfWeek::Monday;
     int day=0;
 
     cout<<"Enter a day:";
-    //cin>>Days;
-    cin>>day;
+    cin>>Days;
 
-    Days=static_cast<DayOfWeek>(day%7);
-    cout<<"Next day is:"<<Days;
+    cout<<"Next day is: "<<Days;
 
     return 0;
 }
