@@ -1,6 +1,9 @@
 #include<iostream>
 using namespace std;
 
+
+
+
 int main()
 {
     const int len=10;   
