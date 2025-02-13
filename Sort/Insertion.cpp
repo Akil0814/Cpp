@@ -1,10 +1,10 @@
 #include<iostream>
 using namespace std;
 
-void sort(int arr[],int n)
+void sort(int arr[],int n)//数组
 {
-    int j=0;//待排元素的下标
-    int i=0;//需要移动的元素
+    int j=0;//需要移动的元素
+    int i=0;//待排元素的下标
     int tmp=0;//待排元素
     for(i=1;i<n;i++)
     {
@@ -20,12 +20,29 @@ void sort(int arr[],int n)
     }
 }
 
+void sortPtr(int *p,int n)//指针
+{
+    int tmp=0;
+    int i=0;//要排的元素
+    int j=0;//需要移动的元素
+    for(i=1;i<n;i++)
+    {
+        tmp=*(p+i);
+        for(j=i-1; j>=0 && *(p+j)>tmp ;j--)
+        {
+            *(p+j+1)=*(p+j);
+        }
+        *(p+j+1)=tmp;
+    }
+}
+
+
 int main()
 {
     const int len=10;   
     int arr[len]={8,2,9,4,3,5,11,43,10,65};
 
-    sort(arr,len);
+    sortPtr(arr,len);
 
     for(int i:arr)
     {

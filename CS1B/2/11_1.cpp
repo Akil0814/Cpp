@@ -61,19 +61,48 @@ istream& operator>>(istream& cin, DayOfWeek& days)
 {
     int inPutValue;
     cin>>inPutValue;
-    days=static_cast<DayOfWeek>(inPutValue%7);
+    days=static_cast<DayOfWeek>(inPutValue%7-1);
 
     return cin;
 }
 
+DayOfWeek& operator+ (DayOfWeek& days,int x)
+{
+    int tmp;
+    tmp=static_cast<int>(days);
+    tmp=(tmp+x)%7;
+    days=static_cast<DayOfWeek>(tmp);
+
+    return days;
+}
+
+DayOfWeek& operator+ (int x,DayOfWeek& days)
+{
+    int tmp;
+    tmp=static_cast<int>(days);
+    tmp=(tmp+x)%7;
+    days=static_cast<DayOfWeek>(tmp);
+
+    return days;
+}
+
+DayOfWeek& operator++ (DayOfWeek& days)
+{
+    int tmp;
+    tmp=static_cast<int>(days);
+    tmp=(++tmp)%7;
+    days=static_cast<DayOfWeek>(tmp);
+
+    return days;
+}
 
 int main()
 {
     DayOfWeek Days=DayOfWeek::Monday;
-    int day=0;
 
-    cout<<"Enter a day:";
+    cout<<"Enter a day: ";
     cin>>Days;
+    ++Days;
 
     cout<<"Next day is: "<<Days;
 
