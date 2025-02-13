@@ -66,6 +66,7 @@ istream& operator>>(istream& cin, DayOfWeek& days)
     return cin;
 }
 
+
 int main()
 {
     DayOfWeek Days=DayOfWeek::Monday;
