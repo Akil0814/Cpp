@@ -27,7 +27,7 @@ int find(int arr[],int x)
     int max=0;
     for(int i=0,j=1;i<x;i++,j++)
     {
-        if(arr[i]==arr[j]+1)
+        if(arr[i]+1==arr[j])
         {
             timer++;
             if(timer>max)
@@ -50,10 +50,10 @@ int main()
 
     cout<<find(arr,size)<<endl;
 
-    for(int iter:arr)
-    {
-        cout<<iter<<" ";
-    }
+    // for(int iter:arr)
+    // {
+    //     cout<<iter<<" ";
+    // }
 
     return 0;
 }
