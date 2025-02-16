@@ -25,9 +25,9 @@ int find(int arr[],int x)
 
     int timer=1;
     int max=0;
-    for(int i=0,j=1;i<x-1;i++,j++)
+    for(int i=0,j=1;i<x;i++,j++)
     {
-        if(arr[i]==arr[j])
+        if(arr[i]==arr[j]+1)
         {
             timer++;
             if(timer>max)
