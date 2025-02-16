@@ -23,8 +23,8 @@
 int main()
 {
     std::cout<<"Name: AKELI\n"//display information
-    <<"Address: Carpenteria Ct LagunaNiguel 92677\n"
-    <<"Telephone: 949-506-6393\n"
+    <<"Address: CaXXXXXXXXXX Ct Laguna 926XX\n"
+    <<"Telephone: 949-506-XXXX\n"
     <<"Major: Computer Scince\n";
 
     return 0;
