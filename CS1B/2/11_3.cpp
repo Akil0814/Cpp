@@ -6,6 +6,7 @@
 #include<iostream>
 using namespace std;
 
+//int arr[size]={2,7,8,0,1,6,5,4};//0-8,missing 3
 
 
 void sort(int arr[],int num)
@@ -15,12 +16,13 @@ void sort(int arr[],int num)
     {
         tmp=arr[i];
         int j;
-        for(j=i-1; arr[j]>arr[i]&&j>=0 ;j--)
+        for(j=i-1; arr[j]>tmp &&j>=0 ;j--)
         {
             arr[j+1]=arr[j];
         }
         arr[j+1]=tmp;
     }
+
 }
 
 
@@ -43,6 +45,13 @@ int main()
     int arr[size]={2,7,8,0,1,6,5,4};//0-8,missing 3
 
     sort(arr,size);
+
+    // for(int iter:arr)
+    // {
+    //     cout<<iter<<" ";
+    // }
+
+    cout<<endl;
 
     cout<<find(arr,size)<<" is missing";
 
