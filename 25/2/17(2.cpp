@@ -73,7 +73,6 @@ void bsort(const T first,const T last,compear comp)
     }
 }
 
-
 int main()
 {
     vector<int>num={3,5,7,9,6,4,2,1,8};
@@ -85,10 +84,14 @@ int main()
     //bsort(num.begin(),num.end(),_greater<int>());
                             //使用仿函数//()表示创建匿名对象
 
-    bsort(num.begin(),num.end(),greater<int>());
+    //bsort(num.begin(),num.end(),greater<int>());
                                 //stl提供的仿函数
 
+    //sort(num.begin(),num.end(),greater<int>());
+    //使用stl的sort
 
+    sort(num.begin(),num.end(),_greater<int>());
+    //也可以使用自己创建的仿函数
 
     for(auto val:num)
         cout<<val<<" ";
