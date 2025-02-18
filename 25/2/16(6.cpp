@@ -1,6 +1,5 @@
 #include <iostream>
 #include<vector>
-#include<algorithm>
 using  namespace std;
 
 // void foreach(const vector<int>& v)//只支持vector<int>
