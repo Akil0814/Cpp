@@ -25,14 +25,15 @@ public:
 
 int main()
 {
-    AA* p=new AA("akil");
-    unique_ptr<AA>pu(p);
+    unique_ptr<AA>pu(new AA("Akil"));
 
-    cout<<"       裸指针的值是:"<<p<<endl;
-    //cout<<"     pu输出的结果是:"<<pu<<endl;
-    cout<<" pu.get输出的结果是:"<<pu.get()<<endl;//智能指针是类 类中有一个成员管理着原始指针
-    cout<<"        pu的地址是:"<<&pu<<endl;
-
+    cout<<"赋值前"<<endl;
+    if(pu!=nullptr)
+        cout<<"pu不是空的"<<endl;
+    pu=nullptr;//指针滞空会释放对象
+    cout<<"赋值后"<<endl;
+    if(pu==nullptr)
+        cout<<"pu是空的"<<endl;
 
     return 0;
 }

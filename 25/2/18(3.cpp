@@ -22,16 +22,23 @@ public:
     }
 };
 
+unique_ptr<AA>func()
+{
+    unique_ptr<AA>pp(new AA("Akil 3"));
+    return pp;
+}
 
 int main()
 {
-    AA* p=new AA("akil");
-    unique_ptr<AA>pu(p);
+    unique_ptr<AA>pu1(new AA("Akil 1"));
 
-    cout<<"       裸指针的值是:"<<p<<endl;
-    //cout<<"     pu输出的结果是:"<<pu<<endl;
-    cout<<" pu.get输出的结果是:"<<pu.get()<<endl;//智能指针是类 类中有一个成员管理着原始指针
-    cout<<"        pu的地址是:"<<&pu<<endl;
+    unique_ptr<AA> pu2;
+    //pu2=pu1;//错误
+    pu2=unique_ptr<AA>(new AA("Akil 2"));//用匿名对象赋值
+
+    cout<<"调用func()之前"<<endl;
+    pu2=func();//用函数的返回值赋值
+    cout<<"调用func()之后"<<endl;
 
 
     return 0;

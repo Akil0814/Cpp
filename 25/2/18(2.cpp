@@ -22,16 +22,25 @@ public:
     }
 };
 
+//void func(unique_ptr<AA>pp)//不行
+void func(unique_ptr<AA>&pp)
+{
+    cout<<"1 name="<<pp->m_name<<endl;
+}
+
+void func(unique_ptr<AA> *pp)
+{
+    cout<<"2 name="<<(*pp)->m_name<<endl;
+}
 
 int main()
 {
     AA* p=new AA("akil");
     unique_ptr<AA>pu(p);
 
-    cout<<"       裸指针的值是:"<<p<<endl;
-    //cout<<"     pu输出的结果是:"<<pu<<endl;
-    cout<<" pu.get输出的结果是:"<<pu.get()<<endl;//智能指针是类 类中有一个成员管理着原始指针
-    cout<<"        pu的地址是:"<<&pu<<endl;
+    func(pu);//不能传值 没有拷贝构造函数
+    func(&pu);//也可以传地址
+
 
 
     return 0;
