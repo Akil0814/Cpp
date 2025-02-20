@@ -2,8 +2,8 @@
  Day of the Week Scheduler
  Create an enum class called DayOfWeek with values:
  Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday.
- Write a program that takes the current day as input (integer 1-7) 
- and prints the next day. If today is Sunday, it should print Monday 
+ Write a program that takes the current day as input (integer 1-7)
+ and prints the next day. If today is Sunday, it should print Monday
  as the next day.
 */
 #include<iostream>
@@ -11,13 +11,13 @@ using namespace std;
 
 enum class DayOfWeek
 {
-    Monday=0, 
-    Tuesday, 
-    Wednesday, 
-    Thursday, 
-    Friday, 
+    Monday=0,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
     Saturday,
-    Sunday 
+    Sunday
 };
 
 ostream& operator<<(ostream& cout, const DayOfWeek& days)
@@ -42,8 +42,8 @@ ostream& operator<<(ostream& cout, const DayOfWeek& days)
 
     case DayOfWeek::Friday:
         cout<<"Friday";
-        break;  
-        
+        break;
+
     case DayOfWeek::Saturday:
         cout<<"Saturday";
         break;
@@ -100,7 +100,7 @@ int main()
 {
     DayOfWeek Days=DayOfWeek::Monday;
 
-    cout<<"Enter a day: ";
+    cout<<"Enter a day(1~7): ";
     cin>>Days;
     ++Days;
 
