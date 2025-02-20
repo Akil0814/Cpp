@@ -5,6 +5,7 @@ Input: [100, 4, 200, 1, 3, 2]
 Output: 4 (The longest sequence is [1, 2, 3, 4])
 */
 #include<iostream>
+#include<vector>
 using namespace std;
 
 void sort(int arr[],int x)
