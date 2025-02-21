@@ -30,14 +30,26 @@ int main()
 
     //getline(fin,buffer);//从文件中读取一行数据放在buffer中
 
+    //1:
     //如果想要读取全部数据 需要while循环
     while(getline(fin,buffer))//把文件内容一行一行读取出来，放在buffer中//文件结束getline返回空
     {
         cout<<buffer<<endl;
     }
-    
 
+    // //2:
+    // //存放从文件中读取的内容
+    // char buffer[101];
+    // while (fin.getline(buffer,100))//要注意保证缓冲区足够大
+    // {
+    //     cout<<buffer<<endl;
+    // }
 
+    string buffer;
+    while (fin>>buffer)
+    {
+        cout<<buffer<<endl;
+    }
 
     fin.close();
 
