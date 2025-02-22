@@ -10,7 +10,7 @@ int main()
     ofstream fout(filename);   // 打开文件。
     fout << unitbuf;
 
-    for (int i = 0; i < 100; i++)  // 循环1000次。
+    for (int i = 0; i < 10; i++)  // 循环
     {
         fout << "i=" << i << "AAAAAAAAAAAAAAAAkil\n";
         //fout.flush();      // 刷新缓冲区。
