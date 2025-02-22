@@ -19,8 +19,10 @@ pass by reference, return struct from the function when it is appropriate.
 Display the employee with the highest salary.
 */
 
-#include<iostream>
-#include<fstream>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
 struct Address
@@ -38,44 +40,111 @@ struct Employee
 
     void showMeber()
     {
-        cout<<"Employee:"<<name<<endl;
-        cout<<"ID:"<<id<<endl;
-        cout<<"Salary:"<<salary<<endl;
-        cout<<"Address:"<<endl;
-        cout<<"City:"<<add.city<<" "<<"State:"<<add.state<<endl;
+        cout << "Employee: " << name << endl;
+        cout << "ID: " << id << endl;
+        cout << "Salary: " << salary << endl;
+        cout << "Address:" << endl;
+        cout << "City: " << add.city << endl;
+        cout << "State: " << add.state << endl;
     }
 };
 
-int  showMenu()
+int showMenu()
 {
     int x;
 
-    cout<<"Print all employees\n";
-    cout<<"Update an employee (by getting its id)\n";
-    cout<<"Remove an employee\n";
-    cout<<"Add a new employee\n";
-    cout<<"Store employees to a file\n";
-    cout<<"Load employees from a file\n";
-    cout<<"Search employee by name\n";
-    cout<<"Print employee with highest salary\n";
+    cout << "----------------------------------------------------" << endl;
+    cout << "1:Print all employees\n";
+    cout << "2:Update an employee (by getting its id)\n";
+    cout << "3:Remove an employee\n";
+    cout << "4:Add a new employee\n";
+    cout << "5:Store employees to a file\n";
+    cout << "6:Load employees from a file\n";
+    cout << "7:Search employee by name\n";
+    cout << "8:Print employee with highest salary\n";
+    cout << "----------------------------------------------------" << endl;
 
-    cin>>x;
+    cin >> x;
 
     return x;
 }
 
-void readEmployee(Employee e[],string fp="W:\Coding\code_text_output")
+void printAllEmployees(vector<Employee> &emp)
 {
+    for (int i = 0; i < emp.size(); i++)
+    {
+        emp[i].showMeber();
+        cout << endl;
+    }
+}
 
+void readEmployee(vector<Employee> &emp)
+{
+    string filename = R"(W:\Coding\code_text_output\employees.txt)";
+    ifstream fin(filename, ios::in);
+    if (fin.is_open() == false)
+    {
+        cout << "failed to open file:" << filename << endl;
+        return;
+    }
+    // while(!fin.eof())
+    while (true)
+    {
+        if (fin.eof() == true)
+            break;
+
+        Employee temp;
+
+        fin >> temp.id;
+        fin.ignore();
+
+        getline(fin, temp.name);
+
+        fin >> temp.salary;
+        fin.ignore();
+
+        getline(fin, temp.add.city);
+        getline(fin, temp.add.state);
+        fin.ignore();
+
+        emp.push_back(temp);
+
+        cout << "eof()=" << fin.eof() << ",good() = " << fin.good()
+             << ", bad() = " << fin.bad() << ", fail() = " << fin.fail() << endl;
+    }
+    cout << "size of emp:" << emp.size() << endl;
 }
 
 int main()
 {
-    Employee emp[100];
+    vector<Employee> emp;
     while (true)
     {
-        showMenu();
-        readEmployee();
+        int choice = showMenu();
+        switch (choice)
+        {
+        case 1:
+            printAllEmployees(emp);
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            readEmployee(emp);
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        default:
+            cout << "Invalid input" << endl;
+            break;
+        }
     }
 
     return 0;
