@@ -2,6 +2,14 @@
 #include <iostream>
 #include <fstream>  // ofstream类需要包含的头文件。
 using  namespace std;
+	// 向文件中写入数据。
+	struct p {               // 结构体。
+		char name[31];         // 姓名。
+		int    age;
+		char memo[301];      // 备注。
+		double weight;         // 体重。
+	};
+
 
 int main()
 {
@@ -33,17 +41,12 @@ int main()
 		cout << "打开文件" << filename << "失败。\n";  return 0;
 	}
 
-	// 向文件中写入数据。
-	struct p {               // 结构体。
-		char name[31];         // 姓名。
-		int    age;
-		char memo[301];      // 备注。
-		double weight;         // 体重。
-	}girl;
-	girl={ "akil",20,"akil adil" ,59.8};
-	fout.write((const char *)& girl, sizeof(p));   // 写入第一块数据。
-	girl={ "mai",21,"sakurajia mai",55.2};
-	fout.write((const char*)& girl, sizeof(p));     // 写入第二块数据。
+
+	p name1{ "akil",20,"akil adil",58.4};
+	fout.write((const char *)& name1, sizeof(p));   // 写入第一块数据
+
+	p name2{ "mai",21,"sakurajia mai",52.3};
+	fout.write((const char*)& name2, sizeof(p));     // 写入第二块数据
 
 	fout.close();	   // 关闭文件，fout对象失效前会自动调用close()。
 
