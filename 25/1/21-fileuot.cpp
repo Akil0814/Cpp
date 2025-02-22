@@ -13,7 +13,7 @@ int main()
     //3: "W:/Coding/code_text_output/1_21.txt"     //把斜线反着写
     //4: "Coding/code_text_output/1_21.txt"        //Linux系统写法
 
-    string str="W:\\Coding\\code_text_output\\21.txt";//可以用string
+    string str="W:\\Coding\\code_text_output\\1_21.txt";//可以用string
     ofstream fout(str);//可以在创建文件对象时打开文件
 
     //打开模式

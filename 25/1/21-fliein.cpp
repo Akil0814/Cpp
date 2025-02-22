@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    string str="W:\\Coding\\code_text_output\\21.txt";//可以用string
+    string str="W:\\Coding\\code_text_output\\1_21.txt";//可以用string
 
     ifstream fin(str);//输入流//不会创建文件//fin为对象名，可以任取
     //fin.open(str,ios::in);

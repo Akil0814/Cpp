@@ -4,7 +4,7 @@
 using  namespace std;
 int main()
 {
-    string filename = R"(W:\Coding\code_text_output\21.txt)";
+    string filename = R"(W:\Coding\code_text_output\1_21.txt)";
 
     ofstream fout;
     fout.open(filename,ios::out);//out截断文件中的内容
