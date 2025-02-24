@@ -38,7 +38,7 @@ struct Employee
     double salary;
     Address add;
 
-    void showMeber()const
+    void showMember()const
     {
         cout << "Employee: " << name << endl;
         cout << "ID: " << id << endl;
@@ -48,6 +48,16 @@ struct Employee
         cout << "State: " << add.state << endl;
     }
 };
+
+inline bool checkIfEmpty(const vector<Employee>&emp)
+{
+    if(emp.empty())
+    {
+        cout<<"No file loaded !"<<endl;
+        return true;
+    }
+    return false;
+}
 
 int showMenu()
 {
@@ -81,8 +91,11 @@ const int searchForEmloyeeByID(const vector<Employee>&emp,int id)
 
 void updateAnEmployee(vector<Employee>&emp)
 {
+    if(checkIfEmpty(emp))
+        return;
+
     int idLookingFor;
-    cout<<"Enter an ID:";
+    cout<<"Enter the ID you are looking for:";
     cin>>idLookingFor;
 
     const int index=searchForEmloyeeByID(emp,idLookingFor);
@@ -91,39 +104,39 @@ void updateAnEmployee(vector<Employee>&emp)
     {
         int change;
         string tmp;
+        double tmpNum;
 
-        cout<<"1:id  2:name  3:salary  4:city  5:state\n";
-        cout<<"Select the Infor you want to change:";
+        cout<<"1:ID  2:Name  3:Salary  4:City  5:State\n";
+        cout<<"Select the information you want to update:";
         cin>>change;
 
         switch (change)
         {
         case 1:
-            cout<<"Enter new id:";
-            cin>>change;
-            emp[index].id=change;
+            cout<<"Enter updated id:";
+            cin>>tmpNum;
+            emp[index].id=tmpNum;
             break;
 
         case 2:
-            cout<<"Enter new name:";
+            cout<<"Enter updated name:";
             getline(cin,tmp);
             emp[index].name=tmp;
             break;
 
         case 3:
-            cout<<"Enter new salary:";
-            cin>>change;
-            emp[index].salary=change;
+            cout<<"Enter updated salary:";
+            cin>>tmpNum;
+            emp[index].salary=tmpNum;
             break;
 
         case 4:
-            cout<<"Enter new city:";
+            cout<<"Enter updated city:";
             getline(cin,tmp);
             emp[index].add.city=tmp;
             break;
         case 5:
-
-            cout<<"Enter new state:";
+            cout<<"Enter updated state:";
             getline(cin,tmp);
             emp[index].add.state=tmp;
             break;
@@ -132,54 +145,126 @@ void updateAnEmployee(vector<Employee>&emp)
             cout << "Invalid input" << endl;
             return;
         }
-        cout<<"finshe\n";
+        cout<<"Update Completed\n";
     }
     else
-        cout<<"Can't find ID"<<endl;
+        cout<<"Unable to find the ID being queried"<<endl;
 
 }
 
 void removeAnEmployee(vector<Employee>&emp)
 {
+    if(checkIfEmpty(emp))
+        return;
+    int idLookingFor=0;
+    cout<<"Enter the ID you are looking for:";
+    cin>>idLookingFor;
+    int choice=0;
+
+    const int index=searchForEmloyeeByID(emp,idLookingFor);
+
+    if(index!=-1)
+    {
+        cout<<"----------------------------------------------"<<endl;
+        cout<<"! ! ! Do You Want To Delet This Employee ! ! !"<<endl;
+        emp[index].showMember();
+        cout<<"----------------------------------------------"<<endl;
+        cout<<"1: Yes  0: No"<<endl;
+        cin>>choice;
+        if(choice==1)
+        {
+            std::swap(emp[index],emp.back());
+            emp.pop_back();
+            cout<<"Deletion Completed"<<endl;
+        }
+        else
+            cout<<"Deletion Cancelled"<<endl;
+    }
+    else
+    {
+        cout<<"Unable to find the ID being queried"<<endl;
+    }
 
 }
 
 void addANewEmployee(vector<Employee>&emp)
 {
+    Employee temp;
+    cout<<"Start adding new members:"<<endl;
+
+    cout<<"Enter new employee's ID:";
+    cin >> temp.id;
+    cin.ignore();
+
+    cout<<"Enter new employee's Name:";
+    getline(cin, temp.name);
+
+    cout<<"Enter new employee's Salary:";
+    cin >> temp.salary;
+    cin.ignore();
+
+    cout<<"Enter new employee's new city:";
+    getline(cin, temp.add.city);
+
+    cout<<"Enter new employee's new state:";
+    getline(cin, temp.add.state);
+
+    emp.push_back(temp);
+
+    cout<<"New employee added !\n";
+    temp.showMember();
+}
+
+void storeEmployeesToAFile(const vector<Employee>&emp)
+{
+    if(checkIfEmpty(emp))
+    return;
 
 }
 
-void storeEmployeesToAFile(vector<Employee>&emp)
+void searchEmployeeByName(const vector<Employee>&emp)
 {
+    if(checkIfEmpty(emp))
+    return;
 
 }
 
-void searchEmployeeByName(vector<Employee>&emp)
+void printEmployeeWithHighestSalary(const vector<Employee>&emp)
 {
-
-}
-
-void printEmployeeWithHighestSalary(vector<Employee>&emp)
-{
-
+    if(checkIfEmpty(emp))
+        return;
+    double hight=0;
+    auto maxIter = emp.cbegin();
+    for (auto iter = emp.cbegin(); iter != emp.cend(); ++iter)
+    {
+        if (iter->salary > maxIter->salary)
+        {
+            maxIter = iter;
+        }
+    }
+    cout<<"Highest Salary Employee:"<<endl;
+    maxIter->showMember();
 }
 
 void printAllEmployees(const vector<Employee> &emp)
 {
+    if(checkIfEmpty(emp))
+        return;
     for (int i = 0; i < emp.size(); i++)
     {
-        emp[i].showMeber();
+        emp[i].showMember();
         cout << endl;
     }
 }
 
-void readEmployee(vector<Employee> &emp)
+void readEmployee(vector<Employee> &emp,string filePath= R"(W:\Coding\code_text_output\employees_tmp.txt)")
 {
-    string filename = R"(W:\Coding\code_text_output\employees_tmp.txt)";
-    ifstream fin(filename, ios::in);
+
+    ifstream fin(filePath, ios::in);
     if (fin.is_open() == false)
     {
-        cout << "failed to open file:" << filename << endl;
+        cout << "File open failed:" << filePath << endl;
+        cout<<"Please change the file path:"<<endl;
         return;
     }
     // while(!fin.eof())//same
@@ -205,9 +290,9 @@ void readEmployee(vector<Employee> &emp)
         emp.push_back(temp);
 
         // cout << "eof()=" << fin.eof() << ",good() = " << fin.good()
-        //      << ", bad() = " << fin.bad() << ", fail() = " << fin.fail() << endl;
+        //      << ", bad() = " << fin.bad() << ", fail() = " << fin.fail() << endl;//
     }
-    cout << "finsh reding,there is " << emp.size()<<" emp"<< endl;
+    cout << "File read completed, The file contains " << emp.size()<<" employee information"<< endl;
 
 }
 
@@ -216,7 +301,7 @@ int main()
     vector<Employee> emp;
     while (true)
     {
-
+        string filePath;
         int choice =showMenu();
         switch (choice)
         {
@@ -241,9 +326,10 @@ int main()
         case 7:
             searchEmployeeByName(emp);
             break;
-            printEmployeeWithHighestSalary(emp);
         case 8:
+            printEmployeeWithHighestSalary(emp);
             break;
+
         default:
             cout << "Invalid input" << endl;
             break;
