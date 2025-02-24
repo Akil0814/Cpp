@@ -18,7 +18,6 @@ Functions and parameters: Write functions to do the above actions and use, pass 
 pass by reference, return struct from the function when it is appropriate.
 Display the employee with the highest salary.
 */
-
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -57,6 +56,20 @@ inline bool checkIfEmpty(const vector<Employee>&emp)
         return true;
     }
     return false;
+}
+
+void changeFliePath(string filePath)
+{
+
+    int choice;
+    cout<<"Do you want to change the file path"<<endl;
+    cout<<"1:Yes     0:No"<<endl;
+    if(choice==1)
+    {
+        cout<<"Enter file path:"<<endl;
+        getline(cin,filePath);
+    }
+    return;
 }
 
 int showMenu()
@@ -218,15 +231,29 @@ void addANewEmployee(vector<Employee>&emp)
 void storeEmployeesToAFile(const vector<Employee>&emp)
 {
     if(checkIfEmpty(emp))
-    return;
+        return;
 
 }
 
 void searchEmployeeByName(const vector<Employee>&emp)
 {
     if(checkIfEmpty(emp))
-    return;
+        return;
+    string tmp;
+    cout<<"Enter the name of the employee you are looking for:";
+    cin.ignore();
+    getline(cin,tmp);
 
+    for (auto iter = emp.cbegin(); iter != emp.cend(); ++iter)
+    {
+        if(tmp==(iter->name))
+        {
+            cout<<"Employees found:\n";
+            iter->showMember();
+            return;
+        }
+    }
+    cout<<"Can't fonud employess you are looking for"<<endl;
 }
 
 void printEmployeeWithHighestSalary(const vector<Employee>&emp)
@@ -259,6 +286,7 @@ void printAllEmployees(const vector<Employee> &emp)
 
 void readEmployee(vector<Employee> &emp,string filePath= R"(W:\Coding\code_text_output\employees_tmp.txt)")
 {
+
 
     ifstream fin(filePath, ios::in);
     if (fin.is_open() == false)
