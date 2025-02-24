@@ -69,6 +69,36 @@ int showMenu()
     return x;
 }
 
+void updateAnEmployee()
+{
+
+}
+
+void removeAnEmployee()
+{
+
+}
+
+void addANewEmployee()
+{
+
+}
+
+void storeEmployeesToAFile()
+{
+
+}
+
+void searchEmployeeByName()
+{
+
+}
+
+void printEmployeeWithHighestSalary()
+{
+
+}
+
 void printAllEmployees(vector<Employee> &emp)
 {
     for (int i = 0; i < emp.size(); i++)
@@ -76,11 +106,6 @@ void printAllEmployees(vector<Employee> &emp)
         emp[i].showMeber();
         cout << endl;
     }
-}
-
-void addANewEmployee()
-{
-    
 }
 
 void readEmployee(vector<Employee> &emp)
@@ -133,18 +158,24 @@ int main()
             printAllEmployees(emp);
             break;
         case 2:
+            updateAnEmployee();
             break;
         case 3:
+            removeAnEmployee();
             break;
         case 4:
+            addANewEmployee();
             break;
         case 5:
+            storeEmployeesToAFile();
             break;
         case 6:
             readEmployee(emp);
             break;
         case 7:
+            searchEmployeeByName();
             break;
+            printEmployeeWithHighestSalary();
         case 8:
             break;
         default:
