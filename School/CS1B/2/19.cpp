@@ -38,7 +38,7 @@ struct Employee
     double salary;
     Address add;
 
-    void showMeber()
+    void showMeber()const
     {
         cout << "Employee: " << name << endl;
         cout << "ID: " << id << endl;
@@ -69,37 +69,102 @@ int showMenu()
     return x;
 }
 
-void updateAnEmployee()
+const int searchForEmloyeeByID(const vector<Employee>&emp,int id)
+{
+    for(int i=0;i<emp.size();i++)
+    {
+        if(emp[i].id==id)
+            return i;
+    }
+    return -1;
+}
+
+void updateAnEmployee(vector<Employee>&emp)
+{
+    int idLookingFor;
+    cout<<"Enter an ID:";
+    cin>>idLookingFor;
+
+    const int index=searchForEmloyeeByID(emp,idLookingFor);
+
+    if(index!=-1)
+    {
+        int change;
+        string tmp;
+
+        cout<<"1:id  2:name  3:salary  4:city  5:state\n";
+        cout<<"Select the Infor you want to change:";
+        cin>>change;
+
+        switch (change)
+        {
+        case 1:
+            cout<<"Enter new id:";
+            cin>>change;
+            emp[index].id=change;
+            break;
+
+        case 2:
+            cout<<"Enter new name:";
+            getline(cin,tmp);
+            emp[index].name=tmp;
+            break;
+
+        case 3:
+            cout<<"Enter new salary:";
+            cin>>change;
+            emp[index].salary=change;
+            break;
+
+        case 4:
+            cout<<"Enter new city:";
+            getline(cin,tmp);
+            emp[index].add.city=tmp;
+            break;
+        case 5:
+
+            cout<<"Enter new state:";
+            getline(cin,tmp);
+            emp[index].add.state=tmp;
+            break;
+
+        default:
+            cout << "Invalid input" << endl;
+            return;
+        }
+        cout<<"finshe\n";
+    }
+    else
+        cout<<"Can't find ID"<<endl;
+
+}
+
+void removeAnEmployee(vector<Employee>&emp)
 {
 
 }
 
-void removeAnEmployee()
+void addANewEmployee(vector<Employee>&emp)
 {
 
 }
 
-void addANewEmployee()
+void storeEmployeesToAFile(vector<Employee>&emp)
 {
 
 }
 
-void storeEmployeesToAFile()
+void searchEmployeeByName(vector<Employee>&emp)
 {
 
 }
 
-void searchEmployeeByName()
+void printEmployeeWithHighestSalary(vector<Employee>&emp)
 {
 
 }
 
-void printEmployeeWithHighestSalary()
-{
-
-}
-
-void printAllEmployees(vector<Employee> &emp)
+void printAllEmployees(const vector<Employee> &emp)
 {
     for (int i = 0; i < emp.size(); i++)
     {
@@ -117,7 +182,7 @@ void readEmployee(vector<Employee> &emp)
         cout << "failed to open file:" << filename << endl;
         return;
     }
-    // while(!fin.eof())
+    // while(!fin.eof())//same
     while (true)
     {
         if (fin.eof() == true)
@@ -139,10 +204,11 @@ void readEmployee(vector<Employee> &emp)
 
         emp.push_back(temp);
 
-        cout << "eof()=" << fin.eof() << ",good() = " << fin.good()
-             << ", bad() = " << fin.bad() << ", fail() = " << fin.fail() << endl;
+        // cout << "eof()=" << fin.eof() << ",good() = " << fin.good()
+        //      << ", bad() = " << fin.bad() << ", fail() = " << fin.fail() << endl;
     }
-    cout << "size of emp:" << emp.size() << endl;
+    cout << "finsh reding,there is " << emp.size()<<" emp"<< endl;
+
 }
 
 int main()
@@ -158,24 +224,24 @@ int main()
             printAllEmployees(emp);
             break;
         case 2:
-            updateAnEmployee();
+            updateAnEmployee(emp);
             break;
         case 3:
-            removeAnEmployee();
+            removeAnEmployee(emp);
             break;
         case 4:
-            addANewEmployee();
+            addANewEmployee(emp);
             break;
         case 5:
-            storeEmployeesToAFile();
+            storeEmployeesToAFile(emp);
             break;
         case 6:
             readEmployee(emp);
             break;
         case 7:
-            searchEmployeeByName();
+            searchEmployeeByName(emp);
             break;
-            printEmployeeWithHighestSalary();
+            printEmployeeWithHighestSalary(emp);
         case 8:
             break;
         default:
