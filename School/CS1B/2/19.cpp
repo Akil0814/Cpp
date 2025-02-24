@@ -80,7 +80,7 @@ void printAllEmployees(vector<Employee> &emp)
 
 void readEmployee(vector<Employee> &emp)
 {
-    string filename = R"(W:\Coding\code_text_output\employees.txt)";
+    string filename = R"(W:\Coding\code_text_output\employees_tmp.txt)";
     ifstream fin(filename, ios::in);
     if (fin.is_open() == false)
     {
@@ -120,7 +120,8 @@ int main()
     vector<Employee> emp;
     while (true)
     {
-        int choice = showMenu();
+
+        int choice =showMenu();
         switch (choice)
         {
         case 1:
