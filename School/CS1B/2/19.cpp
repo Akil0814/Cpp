@@ -78,6 +78,11 @@ void printAllEmployees(vector<Employee> &emp)
     }
 }
 
+void addANewEmployee()
+{
+    
+}
+
 void readEmployee(vector<Employee> &emp)
 {
     string filename = R"(W:\Coding\code_text_output\employees_tmp.txt)";
