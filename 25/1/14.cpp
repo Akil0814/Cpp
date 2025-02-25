@@ -24,6 +24,7 @@ public:
     {
         if(size<=len)
          return;
+        
         T*tmp=new T[size];
         for(int ii=0;ii<len;ii++)
             tmp[ii]=items[ii];
