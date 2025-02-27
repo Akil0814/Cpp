@@ -4,23 +4,24 @@
 #include <vector>
 using namespace std;
 
-const int col=3;
-const int row=3;
 
-void show(char arr[col][row])
-{
-    for(int i=0;i<col;i++)
-    {
-        for(int j=0;j<row;j++)
-        cout<<arr[i][j]<<" ";
-        cout<<endl;
-    }
-
-}
 
 int main()
 {
-    char arr[3][3]={{'#','#','#'},{'#','#','#'},{'#','#','#'}};
-    show(arr);
+    int arr2D[3][3]={{7,8,9},{4,5,6},{1,2,3}};
+    int arr[9]={1,2,3,4,5,6,7,8,9};
+
+    int *p=arr;
+
+    decltype(&arr2D)x;
+    decltype(&arr)y;
+
+    cout<<sizeof(y)<<endl;
+    cout<<sizeof(arr)<<endl;
+    cout<<sizeof(*p)<<endl;
+
+
+    //cout<<sizeof(arr2D)<<endl;
+
     return 0;
 }

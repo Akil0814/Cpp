@@ -8,18 +8,29 @@ int main()
     *px=5;
     int x=*px;
 
+    int y=x;
+    int* py=&y;
+
+
+    //delete px;
     //浅拷贝
     //拷贝对象的指针 并不会创新的内存 当原变量内存被释放时
     //会导致指针*py滞空变成野指针
-    
+
 
     cout<<"x:"<<x<<endl;
+    cout<<"y:"<<x<<endl;
+
 
     cout<<"px:"<<px<<endl;
+    cout<<"py:"<<px<<endl;
+
 
     cout<<"px*:"<<*px<<endl;
+    cout<<"py*:"<<*px<<endl;
 
-    delete px;
+
+    //delete px;
 
     return 0;
 }
