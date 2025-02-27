@@ -26,6 +26,8 @@ int findRepeatingNumbers(const int* arr,int size)
         *(v+*(arr+i))=1;
     }
 
+    delete[] v;
+
     return -1;
 }
 

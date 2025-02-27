@@ -402,10 +402,10 @@ void readEmployee(vector<Employee> &emp)
         return;
     }
     // while(!fin.eof())//same
-    while (true)
+    while (fin.good())
     {
-        if (fin.eof() == true)
-            break;
+        //if (fin.eof() == true)
+          //  break;
 
         Employee temp;
 
