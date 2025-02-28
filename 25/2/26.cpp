@@ -1,5 +1,6 @@
 // 移动语义
 #include <iostream>
+#include<string.h>
 using namespace std;
 
 class AA
@@ -80,7 +81,11 @@ int main()
     cout << "a3.m_data=" << *a3.m_data << endl;
 
     auto f = []
-    { AA aa; aa.alloc(); *aa.m_data = 8; return aa; };         // 返回AA类对象的lambda函数。
+    {   AA aa;
+        aa.alloc();
+        *aa.m_data = 8;
+        return aa; };         // 返回AA类对象的lambda函数。
+
     AA a4 = f(); // lambda函数返回临时对象，是右值，将调用移动构造函数。
     cout << "a4.m_data=" << *a4.m_data << endl;
 
