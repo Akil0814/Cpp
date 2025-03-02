@@ -1,18 +1,17 @@
+#include <fstream>
 #include <iostream>
-#include <string.h>
-#include <unordered_set>
-#include <vector>
+
 using namespace std;
 
-int*** allocate3DArray(int dim1, int dim2, int dim3)
+int ***allocate3DArray(int dim1, int dim2, int dim3)
 {
-    int*** pd3=new int**[dim3];
-    for(int i=0;i<dim3;i++)
+    int ***pd3 = new int **[dim3];
+    for (int i = 0; i < dim3; i++)
     {
-        pd3[i]=new int*[dim2];
-        for(int j=0;j<dim2;j++)
+        pd3[i] = new int *[dim2];
+        for (int j = 0; j < dim2; j++)
         {
-            pd3[i][j]=new int[dim1];
+            pd3[i][j] = new int[dim1];
         }
     }
 
@@ -28,24 +27,45 @@ int*** allocate3DArray(int dim1, int dim2, int dim3)
     return pd3;
 }
 
-void fill3DArray(int*** arr, int dim1, int dim2, int dim3, const char* filename)
+void fill3DArray(int ***arr, int dim1, int dim2, int dim3, const string filePath)
 {
+    ifstream fin(filePath, ios::in);
 
+    for (int x = 0; x < dim3; x++)
+    {
+        for (int y = 0; y < dim2; y++)
+        {
+            for (int z = 0; z < dim1; z++)
+            {
+                fin >> arr[x][y][z];
+            }
+        }
+    }
 }
 
-void print3DArray(const int*** arr, int dim1, int dim2, int dim3)
+void print3DArray(int ***arr, int dim1, int dim2, int dim3)
 {
-    for(int x=0;x<dim3;x++)
+    for (int x = 0; x < dim3; x++)
     {
-        for(int y=0;y<dim2;y++)
+        for (int y = 0; y < dim2; y++)
         {
-            for(int z=0;z<dim1;z++)
-                cout<<arr[x][y][z];
-            cout<<endl;
+            for (int z = 0; z < dim1; z++)
+                cout << arr[x][y][z] << " ";
+            cout << endl;
         }
-        cout<<endl;
+        cout << endl;
     }
+}
 
+void deallocate3DArray(int*** arr, int dim2, int dim3)
+{
+    for (int i = 0; i < dim3; i++) {
+        for (int j = 0; j < dim2; j++) {
+            delete[] arr[i][j];
+        }
+        delete[] arr[i];
+    }
+    delete[] arr;
 }
 
 // Example Input
@@ -70,13 +90,14 @@ void print3DArray(const int*** arr, int dim1, int dim2, int dim3)
 
 int main()
 {
-    int x,y,z;
-    cin>>x>>y>>z;
-    int*** pd3=allocate3DArray(x,y,z);
-    print3DArray(pd3,x,y,z);
+    int x, y, z;
+    string file = R"(3Darr.txt)";
+    cin >> x >> y >> z;
+    int ***pd3 = allocate3DArray(x, y, z);
+    fill3DArray(pd3, x, y, z, file);
+    print3DArray(pd3, x, y, z);
 
-
-    delete[] pd3;
+    deallocate3DArray(pd3,y,z)
 
     return 0;
 }
