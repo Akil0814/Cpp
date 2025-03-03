@@ -4,7 +4,6 @@ using namespace std;
 //对已经排序的数组使用二分查找
 
 
-
 void sort(int arr[],int n)
 {
     int j=0;//待排元素的下标
@@ -46,7 +45,7 @@ void sort(int arr[],int n)
 
 int main()
 {
-    const int len=10;   
+    const int len=10;
     int arr[len]={8,2,9,4,3,5,11,43,10,65};
 
     sort(arr,len);
