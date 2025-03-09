@@ -17,22 +17,9 @@ decltype(auto) allocateArray(int x,int size[])
     return arr;
 }
 
-// void printArray(auto arr,int size[])
-// {
-//     for(int i=0;i<size[0];i++)
-//     {
-
-//     }
-// }
-
-
 int main()
 {
-    int dimension=3;
-    int size[]={2,2,2};
 
-    decltype(auto) ptr=allocateArray(dimension,size);
-    //printArray()
 
 
     return 0;
