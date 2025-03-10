@@ -21,17 +21,20 @@ void get_list(List* &head,List* &tail,const int arr[],int size)
         tail->next=tmp;
         tail=tmp;
     }
+    tail->next=head;
 }
 
 void show_list(List* head)
 {
     List* tmp=nullptr;
     tmp=head;
-    while(tmp)
+    while(tmp->next!=head)
     {
         cout<<tmp->x<<" ";
         tmp=tmp->next;
     }
+    cout<<tmp->x<<" ";
+    cout<<endl;
 
 }
 
@@ -39,7 +42,7 @@ void dealt_list(List* &head)
 {
     List* nextD=head;
     List* tmp=head;
-    while(nextD)
+    while(nextD->next!=head)
     {
         tmp=nextD;
         nextD=nextD->next;
@@ -48,17 +51,49 @@ void dealt_list(List* &head)
     head = nullptr;
 }
 
+void brak_in_two(List* &head,List*&tail,List* &new_head,List*&new_tail)
+{
+    List* tmp=head;
+    int count=1;
+    int half=0;
+    while(tmp!=tail)
+    {
+        tmp=tmp->next;
+        count++;
+    }
+    half=count/2;
+    tmp=head;
+
+    for(int i=1;i<half;i++)
+        tmp=tmp->next;
+
+    new_tail=tmp;
+    new_head=tmp->next;
+    new_tail->next=head;
+    tail->next=new_head;
+}
+
 int main()
 {
-    int arr[]={1,2,3,4,5};
-    int size=sizeof(arr)/4;
+    int arr[]={1,2,3,4,5,6};
+    int size=sizeof(arr)/sizeof(arr[0]);
     List* head=nullptr;
     List* tail=nullptr;
 
     get_list(head,tail,arr,size);
-    show_list(head);
-    dealt_list(head);
 
+    List* new_head=nullptr;
+    List* new_tail=nullptr;
+
+    show_list(head);
+
+    brak_in_two(head,tail,new_head,new_tail);
+
+    show_list(head);
+    show_list(new_head);
+
+    dealt_list(head);
+    dealt_list(new_head);
 
     return 0;
 }
