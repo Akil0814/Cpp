@@ -52,16 +52,54 @@ void dealt_list(List* &head)
     head = nullptr;
 }
 
+void put_new_list(List* &head,List* &tail,List* &new_list)
+{
+    if(head->next==nullptr)
+    {
+        head=new_list;
+        tail=new_list;
+        return;
+    }
+
+    if(new_list->x<head->x)
+    {
+        new_list->next=head;
+        head->previous=new_list;
+            return;
+    }
+
+    List* tmp=head;
+    while (tmp->next)
+    {
+        if(tmp->next->x>new_list->x)
+        {
+            new_list->next=tmp->next;
+            tmp->next->previous = new_list;
+            tmp->next=new_list;
+            new_list->previous=tmp;
+                return;
+        }
+
+        tmp=tmp->next;
+    }
+
+    tail->next=new_list;
+    new_list->previous=tail;
+    tail=new_list;
+}
+
 int main()
 {
-    int arr[]={1,2,3,4,5};
+    int arr[]={1,2,4};
     int size=sizeof(arr)/4;
     List* head=nullptr;
     List* tail=nullptr;
 
     get_list(head,tail,arr,size);
+    List* new_list=new List({3,nullptr,nullptr});
+    put_new_list(head,tail,new_list);
     show_list(head);
-
+    dealt_list(head);
 
     return 0;
 }

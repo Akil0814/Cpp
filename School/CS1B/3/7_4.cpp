@@ -57,6 +57,7 @@ int main()
 
     get_list(head,tail,arr,size);
     show_list(head);
+    dealt_list(head);
 
 
     return 0;
