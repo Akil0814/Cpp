@@ -6,6 +6,7 @@ using namespace std;
 struct List
 {
     int x;
+    List* previous=nullptr;
     List* next=nullptr;
 };
 
@@ -13,11 +14,14 @@ void get_list(List* &head,List* &tail,const int arr[],int size)
 {
 
     List* tmp=nullptr;
-    tmp=new List({arr[0],nullptr});
+    List* last_tmp=nullptr;
+
+    tmp=new List({arr[0],nullptr,nullptr});
     head=tail=tmp;
     for(int i=1;i<size;i++)
     {
-        tmp=new List({arr[i],nullptr});
+        last_tmp=tmp;
+        tmp=new List({arr[i],last_tmp,nullptr});
         tail->next=tmp;
         tail=tmp;
     }

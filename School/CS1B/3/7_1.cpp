@@ -51,17 +51,21 @@ void dealt_list(List* &head)
 void remove_duplicate_list(List* &head,List* &tail)
 {
     List* tmp=head;
-    List* d=nullptr;
-    while(tmp->next->next)
+    while(tmp&&tmp->next)
     {
         if(tmp->x==tmp->next->x)
         {
-            d=tmp;
-            tmp=tmp->next;
+            List* d=tmp->next;
+            //! tmp->next=tmp->next->next; !//! 可能会死循环 !
+            tmp->next=d->next;
             delete d;
+
+            if(tmp->next==nullptr)
+                tail=tmp;
         }
+        else
+            tmp=tmp->next;
     }
-    tail=tmp;
 }
 
 
