@@ -13,8 +13,7 @@ void get_list(List* &head,List* &tail,const int arr[],int size)
 {
 
     List* tmp=nullptr;
-
-    tmp=new List({arr[0],nullptr})
+    tmp=new List({arr[0],nullptr});
     head=tail=tmp;
     for(int i=1;i<size;i++)
     {
@@ -49,36 +48,35 @@ void dealt_list(List* &head)
     head = nullptr;
 }
 
-void remove_duplicate_list(List* &head,List* &tail)
+bool cheek_list(List* &head)
 {
-    List* tmp=head;
-    while(tmp&&tmp->next)
-    {
-        if(tmp->x==tmp->next->x)
-        {
-            List* d=tmp->next;
-            //! tmp->next=tmp->next->next; !//! 可能会死循环 !
-            tmp->next=d->next;
-            delete d;
+    if(head==nullptr||head->next==nullptr)
+        return false;
 
-            if(tmp->next==nullptr)
-                tail=tmp;
-        }
-        else
-            tmp=tmp->next;
+    List* slow=head;
+    List* fast=head->next;
+
+    while(slow!=fast)
+    {
+        if(fast-next==nullptr||fast->next==nullptr)
+            return false;
+        slow->next;
+        fast->next->next;
     }
+    return true;
 }
 
 
 int main()
 {
-    int arr[]={1,1,2,3,3};
+    int arr[]={1,2,3,4,5};
     int size=sizeof(arr)/4;
     List* head=nullptr;
     List* tail=nullptr;
 
     get_list(head,tail,arr,size);
-    remove_duplicate_list(head,tail);
+    show_list(head);
+    cout<<cheek_list(head)<<endl;
     show_list(head);
     dealt_list(head);
 
