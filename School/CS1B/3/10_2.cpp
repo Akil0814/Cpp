@@ -79,6 +79,8 @@ int main()
     get_list(head,tail,arr,size);
     show_list(head);
     head->next->next->next->next=head->next;
+    if(cheek_list(head))
+        fix_list(head);
     cout<<cheek_list(head)<<endl;
     //show_list(head);
     //dealt_list(head);

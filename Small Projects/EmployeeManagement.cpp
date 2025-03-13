@@ -24,10 +24,11 @@ Display the employee with the highest salary.
 #include <string>
 #include <vector>
 using namespace std;
+#define DEBUG
+
 
 string filePath = R"(W:\Coding\code_text_output\employees_tmp.txt)";
 bool isSort = true;
-#define DEBUG
 
 struct Address
 {
