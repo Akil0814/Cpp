@@ -32,6 +32,7 @@ void show_list(List* head)
         cout<<tmp->x<<" ";
         tmp=tmp->next;
     }
+    cout<<endl;
 
 }
 
@@ -58,11 +59,12 @@ bool cheek_list(List* &head)
 
     while(slow!=fast)
     {
-        if(fast-next==nullptr||fast->next==nullptr)
+        if(fast==nullptr||fast->next==nullptr)
             return false;
-        slow->next;
-        fast->next->next;
+        slow=slow->next;
+        fast=fast->next->next;
     }
+
     return true;
 }
 
@@ -76,9 +78,10 @@ int main()
 
     get_list(head,tail,arr,size);
     show_list(head);
+    head->next->next->next=head->next;
     cout<<cheek_list(head)<<endl;
-    show_list(head);
-    dealt_list(head);
+    //show_list(head);
+    //dealt_list(head);
 
 
     return 0;
