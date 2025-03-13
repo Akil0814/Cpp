@@ -91,7 +91,7 @@ int main()
 
     get_list(head,tail,arr,size);
     show_list(head);
-    head->next->next->next->next->next=head->next->next;
+    head->next->next->next->next->next=head->next->next ;
     fix_list(head);
     show_list(head);
     dealt_list(head);

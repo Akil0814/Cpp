@@ -62,7 +62,8 @@ bool cheek_list(List* &head)
         if(fast==nullptr||fast->next==nullptr)
             return false;
         slow=slow->next;
-        fast=fast->next->next;
+        fast=fast-
+        +>next->next;
     }
 
     return true;
