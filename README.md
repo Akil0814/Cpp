@@ -1,11 +1,8 @@
 # For learning c++
 <details>
-  <summary>Table of Contents</summary>
   
   -[25](#25)
   -[24](#24)
-  -[Sort](#Sort)
-  -[Search](#Search)
 
 </details>
 
@@ -59,7 +56,4 @@
 	14.线程回收-detach()
 	14(2.线程-this_thread
 <details>
-	
-## Search
 
-## Sort
