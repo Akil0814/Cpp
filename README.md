@@ -40,7 +40,7 @@
 	5(4.
 	5(5.
  
-<details>
+</details>
 
  
 ### 3
@@ -57,4 +57,4 @@
 	14.线程回收-detach()
 	14(2.线程-this_thread
  
-<details>
+</details>
