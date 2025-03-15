@@ -7,7 +7,7 @@ using namespace std;
 
 void func(int num, const string &str)
 {
-    for (int i = 1; i <= 10; i++)
+    for (int i = 1; i <= 5; i++)
     {
         cout << "第" << i << " 次,num=" << num << " neam=" << str << endl;
         Sleep(1000); // 休眠1秒。
@@ -21,19 +21,11 @@ int main()
     thread t1(func, 1, "akill");
     thread t2(func,2,"maiii");
 
-
-    cout << "任务开始\n";
-    for (int i = 0; i < 5; i++) // 主线程//其余都是子线程
-    {
-        cout << "任务中\n";
-        Sleep(500); // 模拟任务所需时间
-    }
-    cout << "任务完成" << endl;
+    t1.detach();//分离子线程，系统将自动回收资源
+    t2.detach();//分离后的子线程不能join
 
 
-    t1.join(); // 回收线程资源
-    t2.join();
-
+    Sleep(7000); //分离后主线程不能直接结束 主线程结束会导致子线程结束
 
     return 0;
 }
