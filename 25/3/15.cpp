@@ -12,8 +12,8 @@ void func(int num, const string &str)
 
     for (int i = 1; i <= 3; i++)
     {
-        //cout << "第" << i << " 次,num=" << num << " neam=" << str << endl;
-        Sleep(1000); // 休眠1秒。
+        cout << "第" << i << " 次,num=" << num << " neam=" << str << endl;
+        this_thread::sleep_for(chrono::seconds(1));
     }
 }
 
