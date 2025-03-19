@@ -9,8 +9,17 @@ using namespace std;
 
 once_flag onceflag;//定义一个onec_flag类型的全局变量
 
+
+//在线程中 只想调用一次
+void once_func(const int num, const string& str)
+{
+    cout<<"once_func num: "<<num<<" str:"<<str<<endl;
+}
+
 void func(int num, const string &str)
 {
+    //用call_onec调用
+    call_once(onceflag,once_func,1,"aaaaaa");//两个线程只会调用一次 once_func
 
     for (int i = 1; i <= 3; i++)
     {
@@ -18,13 +27,6 @@ void func(int num, const string &str)
         Sleep(1000);
     }
 }
-
-//在线程中 只像调用一次
-void once_func(const int num, const string& str)
-{
-    cout<<"once_func num: "<<num<<" str:"<<str<<endl;
-}
-
 
 int main()
 {
