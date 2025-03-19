@@ -1,8 +1,6 @@
 // 线程
-//this_thread
+//swap
 //表示当前线程
-//sleep_for//休眠一段时间
-//sleep_until//休眠到指定时间点
 #include <iostream>
 #include <thread>
 #include <windows.h>
@@ -15,7 +13,6 @@ void func(int num, const string &str)
     for (int i = 1; i <= 3; i++)
     {
         cout << "第" << i << " 次,num=" << num << " neam=" << str << endl;
-        this_thread::sleep_for(chrono::seconds(1));//让线程休眠一段时间
     }
 }
 
@@ -27,6 +24,9 @@ int main()
     thread t2(func,2,"maiii");
 
     cout<<"主线程: "<<this_thread::get_id()<<endl;//获取线程id 在主线程中 会显示主线程id
+    cout<<"线程 t1: "<<t1.get_id()<<endl;//获取子线程id
+    cout<<"线程 t2: "<<t2.get_id()<<endl;
+    t1.swap(t2);//交换线程
     cout<<"线程 t1: "<<t1.get_id()<<endl;//获取子线程id
     cout<<"线程 t2: "<<t2.get_id()<<endl;
 
