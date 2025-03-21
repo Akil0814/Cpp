@@ -60,6 +60,10 @@
 	13.线程回收-join()
 	14.线程回收-detach()
 	14(2.线程-this_thread::get_id()
-        15.线程
+ 	15.线程
+  	18.线程swap
+  	18(2. 线程移动构造
+  	18(3. 线程call_once
+  	18(4. 线程native_handle
 
 </details>
