@@ -1,5 +1,6 @@
 // 线程
-//native_handle
+//native_handle//使用原生线程库
+//win暂无演示
 #include <iostream>
 #include <thread>
 #include <windows.h>
