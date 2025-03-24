@@ -11,9 +11,7 @@ volatile int a=0;//共享的全局变量
 void func()
 {
     for (int i = 1; i <= 100000; i++)
-    {
         a++;
-    }
 }
 
 int main()
