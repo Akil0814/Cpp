@@ -15,6 +15,7 @@ int main()
 
     int old;//用于存放原值
 
+    a.fetch_add;
 
     return 0;
 }
