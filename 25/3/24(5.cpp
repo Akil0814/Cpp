@@ -15,7 +15,12 @@ int main()
 
     int old;//用于存放原值
 
-    a.fetch_add;
+    old=a.fetch_add(5);
+    cout<<"old="<<old<<" a="<<a.load()<<endl;//读取原子变量a的值
+
+    old=a.fetch_sub(2);
+    cout<<"old="<<old<<" a="<<a.load()<<endl;//读取原子变量a的值
+
 
     return 0;
 }
