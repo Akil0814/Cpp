@@ -13,6 +13,11 @@ int main()
     //如果当两个值相等 把val存储到原子变量中
     //如果当两个值不相等
     //执行存储操作时返回true，否则返回false
+    bool bret=ii.compare_exchange_strong(expect,val);
+	cout << "bret=" << bret << endl;
+	cout << "ii=" << ii << endl;
+	cout << "expect=" << expect << endl;
+
 
     return 0;
 }
