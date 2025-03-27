@@ -15,10 +15,10 @@ int main()
 
     int old;//用于存放原值
 
-    old=a.fetch_add(5);
+    old=a.fetch_add(5);//把原子变量a的值与5相加 返回原值
     cout<<"old="<<old<<" a="<<a.load()<<endl;//读取原子变量a的值
 
-    old=a.fetch_sub(2);
+    old=a.fetch_sub(2);//把原子变量a的值与相减 返回原值
     cout<<"old="<<old<<" a="<<a.load()<<endl;//读取原子变量a的值
 
 
