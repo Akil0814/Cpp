@@ -18,6 +18,5 @@ int main()
 	cout << "ii=" << ii << endl;
 	cout << "expect=" << expect << endl;
 
-
     return 0;
 }
