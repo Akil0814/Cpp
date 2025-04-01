@@ -28,29 +28,30 @@ struct CC	// 类中有普通成员函数。
 	}
 };
 
-struct DD		// 可以被转换为普通函数指针的类。
+struct DD		// 可以被转换为普通函数指针的类
 {
-	using Fun = void (*)(int, const string&);    // 函数指针的别名。
+	using Fun = void (*)(int, const string&);    // 函数指针的别名
 	operator Fun() {
-		return show;	// 返回普通函数show的地址。
+		return show;	// 返回普通函数show的地址
 	}
 };
 
 int main()
 {
-	using Fun = void(int, const string&);  // 函数类型的别名。
+	using Fun = void(int, const string&);  // 函数类型的别名
 
 	// 普通函数。
-	void(*fp1)(int, const string&) = show;	// 声明函数指针，指向函数对象。
-	fp1(1, "我是一只傻傻鸟。");						// 用函数指针调用普通函数。
-    function<void(int, const string&)> fn1 = show;    // 包装普通全局函数show。
-	// fn1(1, "我是一只傻傻鸟。");										// 用function对象调用普通全局函数show。
+	void(*fp1)(int, const string&) = show;	             // 声明函数指针，指向函数对象
+	fp1(1, "我是一只傻傻鸟。");						       // 用函数指针调用普通函数
+    //function<void(int, const string&)> fn1 = show;    // 包装普通全局函数show
+    function<Fun> fn1 = show;    					    // 用别名调用
+	fn1(1, "我是一只傻傻鸟。");							  // 用function对象调用普通全局函数show
 
-	// // 类的静态成员函数。
-	// void(*fp3)(int, const string&) = AA::show;	// 用函数指针指向类的静态成员函数。
-	// fp3(2, "我是一只傻傻鸟。");							// 用函数指针调用类的静态成员函数。
-	// function<void(int, const string&)> fn3 = AA::show;		// 包装类的静态成员函数。
-	// fn3(2, "我是一只傻傻鸟。");												// 用function对象调用类的静态成员函数。
+	// // 类的静态成员函数
+	// void(*fp3)(int, const string&) = AA::show;	// 用函数指针指向类的静态成员函数
+	// fp3(2, "我是一只傻傻鸟。");							// 用函数指针调用类的静态成员函数
+	// function<void(int, const string&)> fn3 = AA::show;		// 包装类的静态成员函数
+	// fn3(2, "我是一只傻傻鸟。");												// 用function对象调用类的静态成员函数
 
 	// // 仿函数。
 	// BB bb;
