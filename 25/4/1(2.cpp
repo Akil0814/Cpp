@@ -17,7 +17,11 @@ int main()
     fn2(2,"bbbbb");
 
     function<void(const string& str,int num)> fn3=bind(show,placeholders::_2,placeholders::_1);//不能直接用show 参数不匹配
-    fn(3,"ccccc");
+    fn3("ccccc",3);
+
+
+    function<void(int num)> fn4=bind(show,placeholders::_1,"ddddd");//只用一个参数
+    fn4(4);
 
     return 0;
 }
