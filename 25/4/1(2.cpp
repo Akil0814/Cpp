@@ -20,7 +20,8 @@ int main()
     fn3("ccccc",3);
 
 
-    function<void(int num)> fn4=bind(show,placeholders::_1,"ddddd");//只用一个参数
+    function<void(int num)> fn4=bind(show,placeholders::_1,"ddddd");//只用一个参数//绑定时 多余的参数是值传递//如果想要传引用 要用std::ref(参数名)处理
+
     fn4(4);
 
     return 0;
