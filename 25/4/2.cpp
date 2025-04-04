@@ -22,16 +22,16 @@ struct CC	// 类中有普通成员函数。
 
 int main()
 {
-    
 
-    thread t1(show0);
-    thread t2(show1,"aaaaa");
-    CC cc;
-    thread t3(&CC::show2,&cc,3,"bbbbb");
 
-    t1.join();
-    t2.join();
-    t3.join();
+    // thread t1(show0);
+    // thread t2(show1,"aaaaa");
+    // CC cc;
+    // thread t3(&CC::show2,&cc,3,"bbbbb");
+
+    // t1.join();
+    // t2.join();
+    // t3.join();
 
 
     return 0;
