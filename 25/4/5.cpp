@@ -83,5 +83,7 @@ int main()
     t1.join();   // 回收子线程的资源。
     t2.join();
     t3.join();
+
+    return 0;
 }
 
