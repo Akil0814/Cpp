@@ -36,8 +36,6 @@ void SortArr(int arr[],int num)
     }
 }
 
-
-
 int main()
 {
     const int len=15;
