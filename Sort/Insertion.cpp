@@ -36,10 +36,9 @@ void sortPtr(int *p,int n)//指针
     }
 }
 
-
 int main()
 {
-    const int len=10;   
+    const int len=10;
     int arr[len]={8,2,9,4,3,5,11,43,10,65};
 
     sortPtr(arr,len);
