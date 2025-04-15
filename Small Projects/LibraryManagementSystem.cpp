@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-class Book
+class Book 
 {
 public:
     Book() : bookID(0), title(""), author(""), price(0.0f) {};
@@ -130,6 +130,13 @@ private:
 class DataHandler
 {
 public:
+    bool saveBook()
+    {
+
+        return false;
+    }
+
+
 private:
     string bookFile;
     string borrowerFile;
@@ -151,7 +158,6 @@ void show_muen()
     cout << "10.Load Data" << endl;
     cout << "-1.Exit" << endl;
     cout<<"____________________________________________"<<endl;
-
 }
 
 main()

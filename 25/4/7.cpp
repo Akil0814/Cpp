@@ -46,4 +46,6 @@ int main()
 		ptr->show();		// 调用子类的成员函数。
 		delete ptr;			// 释放派生类对象。
 	}
+
+	return 0;
 }
