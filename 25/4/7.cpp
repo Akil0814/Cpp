@@ -1,5 +1,5 @@
 //取代虚函数
-#include <iostream>         // 包含头文件。
+#include <iostream>
 #include <functional>
 using namespace std;
 
