@@ -8,11 +8,13 @@
 #include <functional>
 using namespace std;
 
-void show(const string& message) {  // 处理业务的普通函数
+void show(const string& message)
+{  // 处理业务的普通函数
     cout << "处理数据：" << message << endl;
 }
 
-struct BB {  // 处理业务的类
+struct BB
+{  // 处理业务的类
     void show(const string& message) {
         cout << "处理表白数据：" << message << endl;
     }
