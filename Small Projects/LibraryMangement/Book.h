@@ -6,7 +6,9 @@ class Book
 {
 public:
     Book() : bookID(0), title(""), author(""), price(0.0f) {};
+    Book(int id, const string& t, const string& a, float p) : bookID(id), title(t), author(a), price(p) {}
     ~Book() = default;
+
     void inputBook()
     {
         cout << "Enter Book ID: ";
@@ -22,6 +24,7 @@ public:
         cout << "Enter Price: ";
         cin >> price;
     }
+
     void displayBook() const
     {
         cout << "ID: " << bookID
@@ -30,18 +33,16 @@ public:
              << ", Price: $" << price
              << endl;
     }
-    int getBookID() const
-    {
-        return bookID;
-    }
-    string getBookTitle() const
-    {
-        return title;
-    }
-    float getPrice() const
-    {
-        return price;
-    }
+
+    int getBookID() const { return bookID; }
+    string getBookTitle() const { return title; }
+    string getAuthor() const { return author; }
+    float getPrice() const { return price; }
+
+    void setBookID(int id) { bookID = id; }
+    void setTitle(const string& t) { title = t; }
+    void setAuthor(const string& a) { author = a; }
+    void setPrice(float p) { price = p; }
 
 private:
     int bookID;

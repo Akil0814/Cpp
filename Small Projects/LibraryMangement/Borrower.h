@@ -6,13 +6,8 @@ class Borrower
 {
 public:
     Borrower() : borrowerID(0), name(""), email("") {}
-
     Borrower(int ID, string m_name, string m_email)
-    {
-        borrowerID = ID;
-        name = m_name;
-        email = m_email;
-    }
+        : borrowerID(ID), name(m_name), email(m_email) {}
 
     ~Borrower() = default;
 
@@ -36,15 +31,13 @@ public:
              << ", Email: " << email << endl;
     }
 
-    int getBorrowerID() const
-    {
-        return borrowerID;
-    }
+    int getBorrowerID() const { return borrowerID; }
+    string getBorrowerName() const { return name; }
+    string getEmail() const { return email; }
 
-    string getBorrowerName() const
-    {
-        return name;
-    }
+    void setBorrowerID(int id) { borrowerID = id; }
+    void setName(const string& n) { name = n; }
+    void setEmail(const string& e) { email = e; }
 
 private:
     int borrowerID;
