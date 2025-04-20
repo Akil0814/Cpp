@@ -1,147 +1,16 @@
 #include <algorithm>
 #include <fstream>
-#include <iostream>
 #include <string>
 #include <vector>
+
+#include"Book.h"
+#include"Borrower.h"
+#include"Transaction.h"
+#include"DataHandler.h"
+#include"Library.h"
+
 using namespace std;
 
-class Book 
-{
-public:
-    Book() : bookID(0), title(""), author(""), price(0.0f) {};
-    ~Book() = default;
-    void inputBook()
-    {
-        cout << "Enter Book ID: ";
-        cin >> bookID;
-        cin.ignore();
-
-        cout << "Enter Title: ";
-        getline(cin, title);
-
-        cout << "Enter Author: ";
-        getline(cin, author);
-
-        cout << "Enter Price: ";
-        cin >> price;
-    }
-    void displayBook() const
-    {
-        cout << "ID: " << bookID
-             << ", Title: " << title
-             << ", Author: " << author
-             << ", Price: $" << price
-             << endl;
-    }
-    int getBookID() const
-    {
-        return bookID;
-    }
-    string getBookTitle() const
-    {
-        return title;
-    }
-    float getPrice() const
-    {
-        return price;
-    }
-
-private:
-    int bookID;
-    string title;
-    string author;
-    float price;
-};
-
-class Borrower
-{
-public:
-    Borrower() : borrowerID(0), name(""), email("") {}
-
-    Borrower(int ID, string m_name, string m_email)
-    {
-        borrowerID = ID;
-        name = m_name;
-        email = m_email;
-    }
-
-    ~Borrower() = default;
-
-    void inputBorrower()
-    {
-        cout << "Enter Borrower ID: ";
-        cin >> borrowerID;
-        cin.ignore();
-
-        cout << "Enter Name: ";
-        getline(cin, name);
-
-        cout << "Enter Email: ";
-        getline(cin, email);
-    }
-
-    void displayBorrower() const
-    {
-        cout << "ID: " << borrowerID
-             << ", Name: " << name
-             << ", Email: " << email << endl;
-    }
-
-    int getBorrowerID() const
-    {
-        return borrowerID;
-    }
-
-    string getBorrowerName() const
-    {
-        return name;
-    }
-
-private:
-    int borrowerID;
-    string name;
-    string email;
-};
-
-class Transaction
-{
-public:
-private:
-    int transactionID;
-    string date;
-    // const Book &book(reference to a Book object)
-    // const Borrower &borrower(reference to a Borrower object)
-};
-
-class Library
-{
-public:
-private:
-    // Book **books(dynamically allocated array of Book pointers)
-    // Borrower **borrowers(dynamically allocated array of Borrower pointers)
-    // Transaction **transactions(dynamically allocated array of Transaction pointers) int bookCount
-    int borrowerCount;
-    int transactionCount;
-    int bookCapacity;
-    int borrowerCapacity;
-    int transactionCapacity;
-};
-
-class DataHandler
-{
-public:
-    bool saveBook()
-    {
-
-        return false;
-    }
-
-
-private:
-    string bookFile;
-    string borrowerFile;
-    string transactionFile;
-};
 
 void show_muen()
 {
