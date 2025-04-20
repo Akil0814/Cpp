@@ -77,3 +77,8 @@
   	21.线程安全 volatile关键字
 
 </details>
+
+### 4
+<details>
+
+</details>
