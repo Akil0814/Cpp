@@ -15,7 +15,6 @@ public:
                 const string& transactionF = "W:/Coding/code/cpp/Small Projects/LibraryMangement/transactions.txt")
         : bookFile(bookF), borrowerFile(borrowerF), transactionFile(transactionF) {}
 
-    // 保存图书
     bool saveBooks(Book** books, int count) const
     {
         ofstream out(bookFile);
@@ -31,14 +30,13 @@ public:
         return true;
     }
 
-    // 读取图书
     bool loadBooks(Book**& books, int& count)
     {
         ifstream in(bookFile);
         if (!in) return false;
 
         count = 0;
-        books = new Book*[100]; // 假设最多 100 本
+        books = new Book*[100];
         while (!in.eof())
         {
             int id;
@@ -63,7 +61,6 @@ public:
         return true;
     }
 
-    // 保存借阅者
     bool saveBorrowers(Borrower** borrowers, int count) const
     {
         ofstream out(borrowerFile);
@@ -78,7 +75,6 @@ public:
         return true;
     }
 
-    // 加载借阅者
     bool loadBorrowers(Borrower**& borrowers, int& count)
     {
         ifstream in(borrowerFile);
@@ -100,7 +96,6 @@ public:
         return true;
     }
 
-    // 保存交易
     bool saveTransactions(Transaction** transactions, int count) const
     {
         ofstream out(transactionFile);
@@ -115,7 +110,6 @@ public:
         return true;
     }
 
-    // 加载交易：需要由 Library 提供 Book/Borrower 的查找支持后才能做
 
 private:
     string bookFile;
