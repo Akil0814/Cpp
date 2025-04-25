@@ -26,14 +26,20 @@ public:
 
     vector<int> twoSum_2(vector<int> &nums, int target)
     {
+        vector<int> v;
+        int other=0;
         num = nums.size();
+
         for (int i = 0; i < num; i++)
         {
-            for (int j = i + 1; j < num; j++)
+            other=target-nums[i];
+            v.push_back(other);
+            for(int j=0;j<v.size();j++)
             {
-                if (nums[i] + nums[j] == target)
-                    return {i, j};
+                if(v[j]==nums[i])
+                    return {j,i};
             }
+
         }
         return {};
     }
@@ -47,7 +53,7 @@ public:
         {
             int other = target - nums[i];
 
-            if (hash.count(other))
+            if (hash.count(other))//查找是否有出现过
             {
                 return {hash[other], i};
             }
