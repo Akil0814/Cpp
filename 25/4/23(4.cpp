@@ -29,11 +29,13 @@ public:
         vector<int> v;
         int other=0;
         num = nums.size();
+        int i=0;
 
-        for (int i = 0; i < num; i++)
+        while(i < num)
         {
             other=target-nums[i];
             v.push_back(other);
+            i++;
             for(int j=0;j<v.size();j++)
             {
                 if(v[j]==nums[i])
