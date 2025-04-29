@@ -26,24 +26,19 @@ public:
 
     vector<int> twoSum_2(vector<int> &nums, int target)
     {
+
         vector<int> v;
-        int other=0;
-        num = nums.size();
-        int i=0;
-
-        while(i < num)
+        int i = 0;
+        while (i < num) 
         {
-            other=target-nums[i];
-            v.push_back(other);
-            i++;
-            for(int j=0;j<v.size();j++)
-            {
-                if(v[j]==nums[i])
-                    return {j,i};
-            }
-
+         for (int j = 0; j < v.size(); j++)
+        {
+           if (v[j] == nums[i]) return {j, i};
         }
-        return {};
+        int other = target - nums[i];
+        v.push_back(other);
+        i++;
+       }
     }
 
 
