@@ -1,6 +1,6 @@
 // leetcode 1
 #include <iostream>
-#include<unordered_map>
+#include <unordered_map>
 #include <vector>
 using namespace std;
 
@@ -26,31 +26,34 @@ public:
 
     vector<int> twoSum_2(vector<int> &nums, int target)
     {
-
         vector<int> v;
-        int i = 0;
-        while (i < num) 
+        int max=nums[0];
+        for(iter:&nums)
         {
-         for (int j = 0; j < v.size(); j++)
-        {
-           if (v[j] == nums[i]) return {j, i};
+            if(nums>max)
+                max=nums;
         }
-        int other = target - nums[i];
-        v.push_back(other);
-        i++;
-       }
+        v.resize(max,0);
+
+        for(int i=0;i<nums.size();i++)
+        {
+            
+        }
+
+
+
+        return {0, 0};
     }
 
-
-    vector<int> twoSum(vector<int>& nums, int target)
+    vector<int> twoSum(vector<int> &nums, int target)
     {
         unordered_map<int, int> hash;
-        //记录 下标 和需要加合的数字
+        // 记录 下标 和需要加合的数字
         for (int i = 0; i < nums.size(); ++i)
         {
             int other = target - nums[i];
 
-            if (hash.count(other))//查找是否有出现过
+            if (hash.count(other)) // 查找是否有出现过
             {
                 return {hash[other], i};
             }
@@ -79,7 +82,7 @@ int main()
     cin >> target;
 
     Solution s;
-    vector<int> result = s.twoSum(nums, target);
+    vector<int> result = s.twoSum_2(nums, target);
 
     if (!result.empty())
     {
