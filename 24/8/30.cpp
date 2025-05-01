@@ -3,9 +3,8 @@
 int main()
 {
     int n = 5;
-    int x = 5;
 
-    int* arr = new int[n][x];  // 动态分配一个大小为n的数组
+    int* arr = new int[n];  // 动态分配一个大小为n的数组
 
     for(int i = 0; i < n; ++i) {
         arr[i] = i * 2;  // 初始化数组

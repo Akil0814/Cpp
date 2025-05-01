@@ -24,27 +24,6 @@ public:
         return {};
     }
 
-    vector<int> twoSum_2(vector<int> &nums, int target)
-    {
-        vector<int> v;
-        int max=nums[0];
-        for(iter:&nums)
-        {
-            if(nums>max)
-                max=nums;
-        }
-        v.resize(max,0);
-
-        for(int i=0;i<nums.size();i++)
-        {
-            
-        }
-
-
-
-        return {0, 0};
-    }
-
     vector<int> twoSum(vector<int> &nums, int target)
     {
         unordered_map<int, int> hash;
@@ -82,7 +61,7 @@ int main()
     cin >> target;
 
     Solution s;
-    vector<int> result = s.twoSum_2(nums, target);
+    vector<int> result = s.twoSum(nums, target);
 
     if (!result.empty())
     {

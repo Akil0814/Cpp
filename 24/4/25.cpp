@@ -14,6 +14,5 @@ int main()
 
     cout<<"sizeof(stt)="<<sizeof(stt)<<endl;
 
-
     return 0;
 }
