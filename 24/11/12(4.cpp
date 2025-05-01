@@ -13,7 +13,6 @@ public:
     {
         cout<<"~A"<<endl;
     }
-
 };
 
 class B:public A//子类//派生类

@@ -18,8 +18,8 @@ player()
 }
   void show()
   {
-    cout<<"name: "<<name<<endl<<"age: "<<age
-    <<"ptr "<<ptr<<endl;
+    cout<<"name: "<<name<<endl<<"age: "<<age<<endl;
+    cout<<"ptr "<<ptr<<endl;
   }
 player& operator=(const player& someone)//重载赋值运算符
 {
