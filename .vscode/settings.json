@@ -111,7 +111,21 @@
         "ios": "cpp",
         "xiosbase": "cpp",
         "xlocale": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "bit": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "format": "cpp",
+        "locale": "cpp",
+        "stop_token": "cpp",
+        "xfacet": "cpp",
+        "xlocbuf": "cpp",
+        "xlocinfo": "cpp",
+        "xlocmes": "cpp",
+        "xlocmon": "cpp",
+        "xlocnum": "cpp",
+        "xloctime": "cpp",
+        "xtr1common": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
 }

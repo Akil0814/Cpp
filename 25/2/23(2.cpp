@@ -1,19 +1,25 @@
-#include <iostream>
-#include <initializer_list>
+//c++断言
+#include<iostream>
+#include<cassert>
+using namespace std;
 
-double sum(std::initializer_list<double> il)
+void copydata(void* ptr1,void *ptr2)
 {
-    double total = 0;
-    for (auto it = il.begin(); it != il.end(); it++)
-        total = total + *it;
-    return total;
+    assert(ptr1&&ptr2);//断言ptr1和ptr2都不能为空
+    cout<<"继续执行复制函数"<<endl;
 }
 
 int main()
 {
-    // double total = sum(  3.14, 5.20, 8  );    // 错误，如果没有大括号，这是三个参数。
-    double total = sum({ 3.14, 5.20, 8 });        // 正确，有大括号，这是一个参数。
-    std::cout << "total=" << total << std::endl;
+    //const int i=0,j=0;//静态断言失败
+    const int i=1,j=0;//静态断言不会出问题 
+
+
+    static_assert(i," i的值不合法");//静态断言
+
+    //copydata(nullptr,&j);//断言报错
+    //copydata(&i,&j);//不会出问题
+
 
     return 0;
 }

@@ -1,5 +1,4 @@
-//leet code 9
-
+//leetcode 9
 #include <iostream>
 #include <vector>
 using namespace std;
