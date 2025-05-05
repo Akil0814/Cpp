@@ -12,7 +12,6 @@ auto func(T1 x,T2 y) -> decltype(x+y)
     cout<<"tmp="<<tmp<<endl;
 
     return tmp;
-
 }
 
 
