@@ -5,7 +5,7 @@ class Person
 {
 public:
     Person(int age, const std::string &name) : m_age(age), m_name(name) {}
-    ~Person() = default;
+    virtual ~Person() = default;
 
     virtual void displayInfo() = 0;
 
