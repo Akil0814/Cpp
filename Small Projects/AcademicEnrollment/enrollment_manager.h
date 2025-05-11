@@ -71,7 +71,7 @@ int EnrollmentManager::run(int argc, char **argv)
                 handle_root_menu();
             break;
         case 4:
-            //course_manager->showAll(); // 你自己实现的展示函数
+            course_manager->showAll(); // 你自己实现的展示函数
             break;
         case 5:
             std::cout << "Exiting system. Goodbye!\n";
@@ -97,16 +97,16 @@ void EnrollmentManager::handle_student_menu()
         switch (choice)
         {
         case 1:
-            //student_manager->showMyCourses(); // 你要自己实现
+            student_manager->showMyCourses(); // 你要自己实现
             break;
         case 2:
-            //course_manager->showAll();
+            course_manager->showAll();
             break;
         case 3:
-            //student_manager->enrollCourse(); // 用 getStudentId 再选课
+            student_manager->enrollCourse(); // 用 getStudentId 再选课
             break;
         case 4:
-            //student_manager->dropCourse(); // 自己实现
+            student_manager->dropCourse(); // 自己实现
             break;
         case 6:
             return; // Back
@@ -129,16 +129,16 @@ void EnrollmentManager::handle_professor_menu()
         switch (choice)
         {
         case 1:
-            //professer_manager->assignCourse(); // 教师分配课程
+            professer_manager->assignCourse(); // 教师分配课程
             break;
         case 2:
-            //professer_manager->unassignCourse(); // 教师解除课程
+            professer_manager->unassignCourse(); // 教师解除课程
             break;
         case 3:
-            //course_manager->showStudentsInCourse(); // 某课程的所有学生
+            course_manager->showStudentsInCourse(); // 某课程的所有学生
             break;
         case 4:
-            //professer_manager->showMyCourses(); // 展示当前教师的课程
+            professer_manager->showMyCourses(); // 展示当前教师的课程
             break;
         case 5:
             return;
@@ -161,28 +161,28 @@ void EnrollmentManager::handle_root_menu()
         switch (choice)
         {
         case 1:
-            //student_manager->addStudent();
+            student_manager->addStudent();
             break;
         case 2:
-            //professer_manager->addTeacher();
+            professer_manager->addTeacher();
             break;
         case 3:
-            //course_manager->addCourse();
+            course_manager->addCourse();
             break;
         case 4:
-            //student_manager->removeStudent();
+            student_manager->removeStudent();
             break;
         case 5:
-            //professer_manager->removeTeacher();
+            professer_manager->removeTeacher();
             break;
         case 6:
-            //course_manager->removeCourse();
+            course_manager->removeCourse();
             break;
         case 7:
-            //student_manager->showAll();
+            student_manager->showAll();
             break;
         case 8:
-            //professer_manager->showAll();
+            professer_manager->showAll();
             break;
         case 9:
             return;
@@ -194,7 +194,7 @@ void EnrollmentManager::handle_root_menu()
 }
 
 bool EnrollmentManager::identity_verification() {
-    // 先清除前面 cin >> choice 留下的换行
+    
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     if (usertype == UserType::Student) {
