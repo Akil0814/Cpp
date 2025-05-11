@@ -1,8 +1,9 @@
-#include "student.h"
+#include"enrollment_manager.h"
 
-int main()
+int main(int argc,char** argv)
 {
-    Student akil(18, "akil", 12345, 4.0);
+    EnrollmentManager* instance=EnrollmentManager::instance();
+    instance->run(argc, argv);
 
     return 0;
 }
