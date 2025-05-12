@@ -7,14 +7,8 @@ class CourseManager:public Manager<CourseManager>
 private:
     /* data */
 public:
-    CourseManager(/* args */);
+    CourseManager();
     ~CourseManager();
+    void showAll();
+    void showStudentsInCourse();
 };
-
-CourseManager::CourseManager(/* args */)
-{
-}
-
-CourseManager::~CourseManager()
-{
-}
