@@ -29,9 +29,6 @@ public:
     bool dropCourse();
 };
 
-// StudentManager.cpp
-#include "StudentManager.h"
-
 void StudentManager::showAll()
 {
     if (student_list.empty()) {
