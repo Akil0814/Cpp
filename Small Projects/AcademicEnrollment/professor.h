@@ -18,6 +18,7 @@ public:
     ~Professor();
 
     void displayInfo();
+    int getProfessorById();
 
     void addCourse(Course *course);
     void removeCourse(Course *course);

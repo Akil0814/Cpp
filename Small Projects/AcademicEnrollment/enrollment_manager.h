@@ -71,7 +71,7 @@ int EnrollmentManager::run(int argc, char **argv)
                 handle_root_menu();
             break;
         case 4:
-            course_manager->showAll(); // 你自己实现的展示函数
+            course_manager->showAll();
             break;
         case 5:
             std::cout << "Exiting system. Goodbye!\n";
@@ -97,19 +97,19 @@ void EnrollmentManager::handle_student_menu()
         switch (choice)
         {
         case 1:
-            student_manager->showStudentCourses(); // 你要自己实现
+            student_manager->showStudentCourses();
             break;
         case 2:
             course_manager->showAll();
             break;
         case 3:
-            student_manager->enrollCourse(); // 用 getStudentId 再选课
+            student_manager->enrollCourse();
             break;
         case 4:
-            student_manager->dropCourse(); // 自己实现
+            student_manager->dropCourse();
             break;
         case 6:
-            return; // Back
+            return;
         default:
             std::cout << "Invalid option.\n";
             break;
@@ -129,16 +129,16 @@ void EnrollmentManager::handle_professor_menu()
         switch (choice)
         {
         case 1:
-            professor_manager->assignCourse(); // 教师分配课程
+            professor_manager->assignCourse();
             break;
         case 2:
-            professor_manager->unassignCourse(); // 教师解除课程
+            professor_manager->unassignCourse();
             break;
         case 3:
-            course_manager->showStudentsInCourse(); // 某课程的所有学生
+            course_manager->showStudentsInCourse();
             break;
         case 4:
-            professor_manager->showProfessorCourses(); // 展示当前教师的课程
+            professor_manager->showProfessorCourses();
             break;
         case 5:
             return;
@@ -164,7 +164,7 @@ void EnrollmentManager::handle_root_menu()
             student_manager->addStudent();
             break;
         case 2:
-            professor_manager->addTeacher();
+            professor_manager->AddProfesser();
             break;
         case 3:
             course_manager->addCourse();
@@ -173,7 +173,7 @@ void EnrollmentManager::handle_root_menu()
             student_manager->removeStudent();
             break;
         case 5:
-            professor_manager->removeTeacher();
+            professor_manager->RemoveProfesser();
             break;
         case 6:
             course_manager->removeCourse();

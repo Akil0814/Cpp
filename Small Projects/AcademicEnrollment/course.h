@@ -19,6 +19,7 @@ public:
     int getCurrentEnrollment() const;
     bool isFull() const;
     void displayInfo() const;
+    int getCourseCode();
 
     void addStudent(Student* student);
     void removeStudent(Student* student);
