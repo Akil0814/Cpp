@@ -71,7 +71,7 @@ void Course::displayInfo() const
         for (auto* student : enrolledStudents) {
             if (student) {
                 std::cout << "    - ";
-                student->displayInfo(); // assumes Student::displayInfo() prints on a new line or same
+                student->displayInfo();
             }
         }
     }

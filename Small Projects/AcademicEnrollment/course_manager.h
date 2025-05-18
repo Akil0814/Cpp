@@ -57,7 +57,8 @@ void CourseManager::removeCourse()
 Course* CourseManager::getCourseById(int courseId)
 {
     for (auto& course : course_list) {
-        if (course.getCourseCode() == courseId) { // Assuming getCourseCode returns int or string
+        if (course.getCourseCode() == courseId)
+        {
             return &course;
         }
     }
@@ -76,5 +77,5 @@ void CourseManager::showStudentsInCourse()
         return;
     }
     Course& course = course_list[index - 1];
-    course.displayInfo(); // prints students inside
+    course.displayInfo();
 }

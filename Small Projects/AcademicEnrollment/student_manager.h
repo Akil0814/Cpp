@@ -101,7 +101,7 @@ void StudentManager::showStudentCourses()
         std::cout << "Student not found." << std::endl;
         return;
     }
-    student->displayInfo(); // Student::displayInfo shows courses
+    student->displayInfo();
 }
 
 bool StudentManager::enrollCourse()
