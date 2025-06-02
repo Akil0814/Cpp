@@ -19,10 +19,11 @@ public:
 
   void setname(const string &name)
   {
+
     create_name = name;
   }
 
-  void setage(const int &age)
+  const void setage(const int &age)
   {
     create_age = age;
   }

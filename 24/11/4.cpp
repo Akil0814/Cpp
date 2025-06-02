@@ -38,6 +38,11 @@ int main()
     akil.set("akil", 20);
     akil.show();
     akil.show2();
+    player x=akil;
+    x.set("akil", 20);
+    x.show();
+    x.show2();
+
 
     return 0;
 }

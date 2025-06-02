@@ -16,7 +16,7 @@ public:
         age = age1;
     }
     void show2();
-};
+}
 
 void player::show2() // show2 是player 的成员变量函数
 {
