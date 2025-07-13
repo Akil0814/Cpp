@@ -32,7 +32,7 @@ void QuickSort_hole(int* first, int* last)//挖坑填数
     if (first >= last)
         return;
 
-    int pivot=*first;
+    int pivot=*first;//保存第一位
     int* low=first;
     int* high=last;
 
@@ -41,18 +41,18 @@ void QuickSort_hole(int* first, int* last)//挖坑填数
         while(low<high&& *high>=pivot)
         --high;
 
-        *low=*high;
+        *low=*high;//用从最后开始找到的小于pivot的值 替换第一位，原始位置会变成一个‘坑’
 
         while(low<high&&*low<=pivot)
         ++low;
 
-        *high=*low;
+        *high=*low;//用从最前开始找到的大于pivot的值 替换挖的坑
     }
 
     *low=pivot;
 
-    QuickSort_hole(first,low-1);
-    QuickSort_hole(low+1,last);
+    QuickSort_hole(first,low-1);//对左边再次排序
+    QuickSort_hole(low+1,last);//对右边排序
 
 }
 
