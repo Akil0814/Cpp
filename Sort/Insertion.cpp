@@ -6,7 +6,7 @@ void sort(int arr[],int n)//数组
     int j=0;//需要移动的元素
     int i=0;//待排元素的下标
     int tmp=0;//待排元素
-    for(i=1;i<n;i++)
+    for(i=1;i<n;i++)//不需要排第一个元素 所以从1开始
     {
         tmp=arr[i];
         //for(j=i-1; j>=0 && tmp>arr[j] ;j--)//可以将判断条件放入循环中

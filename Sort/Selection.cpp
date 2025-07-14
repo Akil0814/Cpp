@@ -22,7 +22,7 @@ void SortePtr(int* p,int x)//指针表示法
 void SorteArr(int arr[],int x)//数组表示法
 {
     int min=0;//最小元素数组下标
-    for(int i=0;i<x-1;i++)
+    for(int i=0;i<x-1;i++)//i 为第一个开始的元素
     {
         min=i;//默认第一个元素最小
         for(int j=i+1;j<x;j++)
@@ -40,7 +40,7 @@ void SorteRecursion(int* p,int x)//使用递归进行排序
 {
     if(x<2)
         return;
-        
+
     int min=0;
     for(int i=1;i<x;i++)
     {
