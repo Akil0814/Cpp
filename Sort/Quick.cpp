@@ -25,8 +25,6 @@ void QuickSort_hoare(int* first, int* last)//指针对撞
 
 }
 
-
-
 void QuickSort_hole(int* first, int* last)//挖坑填数
 {
     if (first >= last)
@@ -53,7 +51,6 @@ void QuickSort_hole(int* first, int* last)//挖坑填数
 
     QuickSort_hole(first,low-1);//对左边再次排序
     QuickSort_hole(low+1,last);//对右边排序
-
 }
 
 int main()
