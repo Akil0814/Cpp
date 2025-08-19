@@ -12,10 +12,17 @@ bool isValid(string s)
 
     for(auto iter= s.begin();iter!=s.end();iter++)
     {
-        if((*iter))
+        switch (iter*)
+        {
+        case constant expression:
+            break;
+
+        default:
+            break;
+        }
     }
 
-   return false;
+   return true;
 }
 
 int main()
