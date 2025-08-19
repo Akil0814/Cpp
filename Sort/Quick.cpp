@@ -30,7 +30,6 @@ void QuickSort_hoare(int* first, int* last)//指针对撞
     QuickSort_hoare(high+1,last);
 }
 
-
 //这种方法写出来可能会有很多多余的交换，如果数组是 9,8,1,0,3,5,2,4,6 基准值就是6,9和8会被多次swap
 //性能开销偏大
 void QuickSort_lamuto(int* first, int* last)
@@ -75,7 +74,6 @@ void QuickSort_lamuto(int* first, int* last)
     QuickSort_lamuto(first, pivot_pos - 1);
     QuickSort_lamuto(pivot_pos + 1, last);
 */
-
 
 }
 
