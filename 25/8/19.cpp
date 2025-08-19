@@ -12,7 +12,7 @@ bool isValid(string s)
 
     for(auto iter= s.begin();iter!=s.end();iter++)
     {
-
+        if((*iter))
     }
 
    return false;
