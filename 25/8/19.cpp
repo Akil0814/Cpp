@@ -3,31 +3,41 @@
 #include<vector>
 using namespace std;
 
-bool isValid(string s)
+
+bool is_pair(char open, char close)
 {
-    if(s.empty())
-        return true;
+    return (open == '(' && close == ')') ||
+           (open == '[' && close == ']') ||
+           (open == '{' && close == '}');
+}
 
-    vector<pair<char,char>> p;
+bool isValid(const string& s)
+{
+    vector<char> st;
+    st.reserve(s.size());//提前预留字符串size大小
 
-    for(auto iter= s.begin();iter!=s.end();iter++)
+    for (char c : s)
     {
-        switch (iter*)
+        switch (c)
         {
-        case constant expression:
+        case '(': case '[': case '{':
+            st.push_back(c);
             break;
-
+        case ')': case ']': case '}':
+            if (st.empty() || !is_pair(st.back(), c))
+                return false;
+            st.pop_back();
+            break;
         default:
-            break;
+            return false;
         }
     }
-
-   return true;
+    return st.empty();
 }
 
 int main()
 {
-    string str="";
+    string str="[[{]]{}}";
     std::cout<<isValid(str);
 
     return 0;
