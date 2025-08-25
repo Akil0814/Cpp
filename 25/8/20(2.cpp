@@ -14,14 +14,17 @@ vector<int> plusOne(vector<int>& digits)
         digits[digits.back()]=digits[digits.back()]+1;
         return digits;
     }
-    if(digits.size()=1)
-        return {1,0};
-
 }
 
+//homi
+//cath
 
 int main()
 {
-
+    vector<int> d={3};
+    for(auto &iter:plusOne(d))
+    {
+        cout<<iter<<endl;
+    }
     return 0;
 }
