@@ -19,9 +19,15 @@ vector<int> plusOne(vector<int>& digits)
     return digits;
 }
 
+//homi
+//cath
 
 int main()
 {
-
+    vector<int> d={3};
+    for(auto &iter:plusOne(d))
+    {
+        cout<<iter<<endl;
+    }
     return 0;
 }
