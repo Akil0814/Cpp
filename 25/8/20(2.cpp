@@ -1,4 +1,4 @@
-// leetcode 58
+// leetcode 66
 #include<iostream>
 #include <string>
 #include <vector>
@@ -6,17 +6,17 @@ using namespace std;
 
 vector<int> plusOne(vector<int>& digits)
 {
-    if(digits.empty())
-        return {1};
-
-    if(digits.back()!=9)
+    for (int i = digits.size() - 1; i >= 0; i--)
     {
-        digits[digits.back()]=digits[digits.back()]+1;
-        return digits;
+        if (digits[i] != 9)
+        {
+            digits[i]++;
+            return digits;   // 没有进位，加一直接返回
+        }
+        digits[i] = 0; // 进位，当前位清零
     }
-    if(digits.size()=1)
-        return {1,0};
-
+    digits.insert(digits.begin(), 1);
+    return digits;
 }
 
 

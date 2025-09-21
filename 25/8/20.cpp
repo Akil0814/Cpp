@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-int lengthOfLastWord(string s)
+int lengthOfLastWord(string s,bool my)
 {
     if(s.empty())
         return 0;
@@ -25,6 +25,22 @@ int lengthOfLastWord(string s)
         l++;
     }
 
+    return l;
+}
+
+
+int lengthOfLastWord(string s)
+{
+    int i = s.size() - 1;
+    // 跳过末尾空格
+    while (i >= 0 && s[i] == ' ') i--;
+    // 空格统计长度
+    int l = 0;
+    while (i >= 0 && s[i] != ' ')
+    {
+        l++;
+        i--;
+    }
     return l;
 }
 
