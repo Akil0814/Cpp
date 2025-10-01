@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-void merge(vector<int>& nums1, int m, vector<int>& nums2, int n,bool flag)
+void merge(vector<int>& nums1, int m, vector<int>& nums2, int n,bool my)
 {
     nums1.shrink_to_fit(m);
     nums2.shrink_to_fit(n);
