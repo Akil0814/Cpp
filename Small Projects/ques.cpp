@@ -18,8 +18,8 @@ long double func(long double x)
 
     //Y=pow(e,(x*x));
     //Y=pow(x,2);
-    //Y=pow(sin(x),3)*pow(cos(x),2);
-    Y=1/x;
+    Y=pow(sin(x),3)*pow(cos(x),2);
+    //Y=1/x;
 
     return Y;
 }
@@ -75,7 +75,7 @@ void intrgart_2(double start,double end)
 
 int main()
 {
-    intrgart_2(0,10);
+    intrgart(0,pi/3);
 
     //std::cout<<__cplusplus<<std::endl;
     return 0;
