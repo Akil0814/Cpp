@@ -27,11 +27,6 @@ void create_tree_by_level(Tree *top, int level,int& start_num) // num 代表要�
     }
 }
 
-void creat_tree_by_count(Tree* top, int count,int& start_num)
-{
-    
-}
-
 void destroy_tree(Tree* top)
 {
     if (!top) return;
