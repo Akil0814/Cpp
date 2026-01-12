@@ -27,6 +27,8 @@ void Sorte(int* p,int x)
     }
 
     cout<<t<<endl;
+
+    reutrn;
 }
 
 void SortePtr(int* p,int x)//指针表示法
