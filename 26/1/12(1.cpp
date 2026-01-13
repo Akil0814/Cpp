@@ -62,20 +62,12 @@ int main()
 
     for(auto iter:arr)
     {
-
         if(iter<10)
         {
             std::string tmp_str=std::to_string(iter);
-            //std::cout<<"1:"<<tmp_str<<std::endl;
             tmp_str=tmp_str+"00";
-            // std::cout<<"2:"<<tmp_str<<std::endl;
-            // std::cout<<"3:"<<tmp_str[0];
-            // std::cout<<tmp_str[1];
-            // std::cout<<tmp_str[2];
-            // std::cout<<std::endl;
             str_v.push_back(tmp_str);
         }
-
         else if(iter<100)
         {
             std::string tmp_str=std::to_string(iter);
@@ -92,13 +84,16 @@ int main()
         }
     }
 
-        std::cout<<"string:    ";
 
+
+    std::cout<<"string:    ";
     for(auto iter:str_v)
     {
         std::cout<<iter<<" ";
     }
-    std::cout<<std::endl;;
+    std::cout<<std::endl;
+
+
     add_digits(arr);
 
 
