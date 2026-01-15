@@ -2,10 +2,28 @@
 #include<vector>
 #include <algorithm>
 
+bool is_char_same(char c_begin,char c_end)
+{
+
+
+}
+
+
 bool palindrome_string(std::string str)
 {
     if(str.length()<=1)
         return true;
+
+    if(str[0].)
+    {
+
+    }
+
+    if(str[str.size()-1])
+    {
+
+    }
+
     else if(str[0]==str[str.size()-1])
     {
         str.erase(0,1);
